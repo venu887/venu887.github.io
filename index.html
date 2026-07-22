@@ -16,20 +16,43 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <style>
+    /* CSS Variables for Light Mode (Default) */
     :root {
       --bg-color: #F8FAFC;
-      --text-color: #1F2937;
-      --text-muted: #6B7280;
-      --primary-color: #36648B;
-      --accent-color: #2F6F62;
-      --highlight-color: #DCEAF3;
-      --badge-bg: #EAF2F8;
+      --section-alt-bg: #EDF2F7;
+      --text-color: #1E293B;
+      --text-muted: #64748B;
+      --primary-color: #25527B;
+      --accent-color: #236356;
+      --highlight-color: #E2EDF8;
+      --badge-bg: #EAEFF5;
       --card-bg: #FFFFFF;
-      --nav-bg: rgba(255, 255, 255, 0.95);
+      --nav-bg: rgba(248, 250, 252, 0.85);
       --font-main: 'Inter', sans-serif;
-      --gradient-1: linear-gradient(135deg, #36648B, #2F6F62);
-      --border-color: #E2E8F0;
-      --section-alt: #EEF4F7;
+      --gradient-1: linear-gradient(135deg, #25527B, #236356);
+      --border-color: #CBD5E1;
+      --hero-bg: linear-gradient(180deg, #DCEBF7 0%, #F8FAFC 100%);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 10px 25px -5px rgba(37, 82, 123, 0.12);
+    }
+
+    /* CSS Variables for Dark Mode */
+    [data-theme="dark"] {
+      --bg-color: #0F172A;
+      --section-alt-bg: #1E293B;
+      --text-color: #F1F5F9;
+      --text-muted: #94A3B8;
+      --primary-color: #60A5FA;
+      --accent-color: #34D399;
+      --highlight-color: rgba(96, 165, 250, 0.12);
+      --badge-bg: #1E293B;
+      --card-bg: #1E293B;
+      --nav-bg: rgba(15, 23, 42, 0.85);
+      --gradient-1: linear-gradient(135deg, #60A5FA, #34D399);
+      --border-color: #334155;
+      --hero-bg: radial-gradient(circle at 50% 20%, #1E293B 0%, #0F172A 100%);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
     }
 
     * {
@@ -44,6 +67,9 @@
       color: var(--text-color);
       line-height: 1.6;
       overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-image: radial-gradient(var(--border-color) 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
     }
 
     a {
@@ -56,15 +82,17 @@
       color: var(--accent-color);
     }
 
-    /* Navbar */
+    /* Header & Navigation */
     header {
       position: sticky;
       top: 0;
       background-color: var(--nav-bg);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       z-index: 1000;
       border-bottom: 1px solid var(--border-color);
-      padding: 1rem 0;
+      padding: 0.8rem 0;
+      transition: background-color 0.3s, border-color 0.3s;
     }
 
     nav {
@@ -74,12 +102,18 @@
       justify-content: flex-end;
       align-items: center;
       padding: 0 2rem;
+      gap: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
     }
 
     .nav-links a {
-      margin-left: 2rem;
       color: var(--text-color);
       font-weight: 500;
+      font-size: 0.95rem;
       transition: color 0.2s;
     }
 
@@ -87,27 +121,61 @@
       color: var(--accent-color);
     }
 
-    /* Hero Section */
+    /* Dark Mode Toggle Button */
+    .theme-toggle {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 0.5rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section - Full Width Banner Fix */
+    .hero-wrapper {
+      width: 100%;
+      background: var(--hero-bg);
+      border-bottom: 1px solid var(--border-color);
+      transition: background 0.3s;
+    }
+
     .hero {
-      min-height: min-content;
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      gap: 2.5rem;
-      padding: 4rem 2rem 3rem 2rem;
-      background: linear-gradient(135deg,#F8FAFC 0%,#EAF2F8 100%);
+      gap: 3rem;
+      padding: 4.5rem 2rem 4rem 2rem;
     }
 
     .hero-img {
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      border-radius: 24px; /* Squircle design */
       object-fit: cover;
-      border: 4px solid var(--primary-color);
-      box-shadow: 0 10px 25px rgba(54, 100, 139, 0.2);
-      background-color: #E2E8F0;
+      border: 3px solid var(--primary-color);
+      box-shadow: var(--shadow-md);
+      background-color: var(--card-bg);
       flex-shrink: 0;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hero-img:hover {
+      transform: scale(1.02);
     }
 
     .hero-text {
@@ -116,8 +184,8 @@
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 4.5vw, 3rem);
-      margin-bottom: 0.5rem;
+      font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+      margin-bottom: 0.6rem;
       color: var(--primary-color);
       font-weight: 800;
       letter-spacing: -0.5px;
@@ -126,19 +194,30 @@
     .hero .tagline {
       font-size: 1.15rem;
       color: var(--text-color);
-      font-weight: 600;
-      line-height: 1.4;
+      font-weight: 500;
+      line-height: 1.5;
     }
 
-    /* Sections */
+    /* Alternating Sections */
+    .section-wrapper {
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    .section-wrapper.alt {
+      background-color: var(--section-alt-bg);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
     section {
-      padding: 3.5rem 2rem;
+      padding: 4rem 2rem;
       max-width: 1100px;
       margin: 0 auto;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.1rem;
       margin-bottom: 2.5rem;
       text-align: center;
       color: var(--primary-color);
@@ -156,24 +235,24 @@
       border-radius: 2px;
     }
 
-    /* About */
+    /* About Section */
     .about-content {
       max-width: 850px;
       margin: 0 auto;
       font-size: 1.08rem;
       color: var(--text-color);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     .about-content p {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.25rem;
     }
 
     .about-content p:last-child {
       margin-bottom: 0;
     }
 
-    /* 3D Carousel Styles */
+    /* 3D Carousel Section */
     .carousel-container {
       position: relative;
       overflow: hidden;
@@ -213,11 +292,11 @@
       margin-top: -200px;
       margin-left: -160px;
       background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.12);
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
       transform-style: preserve-3d;
       will-change: transform, opacity;
-      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s, background-color 0.3s;
       opacity: 0;
       pointer-events: auto;
       display: flex;
@@ -241,7 +320,7 @@
 
     .card-visual i {
       font-size: 3.5rem;
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
     .card-title-overlay {
@@ -279,20 +358,19 @@
     .project-info p {
       font-size: 0.9rem;
       color: var(--text-color);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    /* Focus State for 3D Carousel */
     .project-card.focused {
       opacity: 1;
       pointer-events: auto;
       z-index: 100 !important;
       border-color: var(--primary-color);
-      box-shadow: 0 15px 35px rgba(54, 100, 139, 0.25);
+      box-shadow: 0 15px 35px rgba(37, 82, 123, 0.25);
     }
 
     .carousel-track:not(.is-dragging) .project-card.focused .card-visual {
-      height: 150px;
+      height: 140px;
     }
 
     .carousel-track:not(.is-dragging) .project-card.focused .card-title-overlay {
@@ -305,58 +383,7 @@
       transform: translateY(0);
     }
 
-    /* Fallback layout when JS is disabled */
-    body.no-js .carousel-container {
-      margin-top: 0;
-      margin-bottom: 0;
-      height: auto;
-      overflow: visible;
-    }
-
-    body.no-js .carousel-scene {
-      height: auto;
-      perspective: none;
-      display: block;
-      padding: 2rem 0;
-    }
-
-    body.no-js .carousel-track {
-      transform-style: flat;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 0 1rem;
-      height: auto;
-    }
-
-    body.no-js .project-card {
-      position: relative;
-      top: auto;
-      left: auto;
-      margin: 0 auto;
-      transform: none !important;
-      opacity: 1;
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      min-height: 380px;
-    }
-
-    body.no-js .project-card .card-visual {
-      height: 150px;
-    }
-
-    body.no-js .project-card .card-title-overlay {
-      display: none;
-    }
-
-    body.no-js .project-card .project-info {
-      display: block;
-      opacity: 1;
-      transform: none;
-    }
-
-    /* Experience Timeline */
+    /* Timeline Section */
     .timeline {
       position: relative;
       max-width: 850px;
@@ -370,7 +397,7 @@
       transform: translateX(-50%);
       width: 2px;
       height: 100%;
-      background: #CBD5E1;
+      background: var(--border-color);
     }
 
     .timeline-item {
@@ -415,9 +442,9 @@
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(47, 111, 98, 0.6); }
-      70% { box-shadow: 0 0 0 10px rgba(47, 111, 98, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(47, 111, 98, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(35, 99, 86, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(35, 99, 86, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(35, 99, 86, 0); }
     }
 
     .timeline-date {
@@ -465,8 +492,9 @@
       border: 1px solid var(--border-color);
       border-left: 4px solid var(--primary-color);
       padding: 1.25rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: background-color 0.3s, border-color 0.3s;
     }
 
     .pub-card h3 {
@@ -488,7 +516,7 @@
       font-weight: 600;
     }
 
-    /* Technical Expertise Categorized Grid */
+    /* Categorized Technical Expertise */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -500,9 +528,10 @@
     .skills-category {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 1.25rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      box-shadow: var(--shadow-sm);
+      transition: background-color 0.3s, border-color 0.3s;
     }
 
     .skills-category h3 {
@@ -524,15 +553,15 @@
 
     .badge {
       background: var(--badge-bg);
-      border: 1px solid rgba(54, 100, 139, 0.15);
-      color: #1E3A5F;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
       padding: 0.35rem 0.75rem;
       font-size: 0.85rem;
       font-weight: 500;
-      border-radius: 6px;
+      border-radius: 8px;
     }
 
-    /* Compact Contact Section */
+    /* Contact Section */
     .contact-container {
       text-align: center;
       max-width: 800px;
@@ -557,14 +586,14 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
+      padding: 0.65rem 1.25rem;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 8px;
+      border-radius: 10px;
       color: var(--primary-color);
       font-weight: 600;
       font-size: 0.95rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      box-shadow: var(--shadow-sm);
       transition: all 0.25s ease;
     }
 
@@ -577,24 +606,29 @@
       color: white;
       border-color: var(--primary-color);
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(54, 100, 139, 0.25);
+      box-shadow: var(--shadow-md);
     }
 
     /* Footer */
     footer {
-      background-color: #0F172A;
+      background-color: #0B1120;
       color: #94A3B8;
       padding: 2.5rem 0;
       text-align: center;
-      margin-top: 4rem;
       font-size: 0.9rem;
+      border-top: 1px solid #1E293B;
     }
 
-    /* Responsive */
+    /* Mobile Responsive Adjustments */
     @media (max-width: 768px) {
+      nav {
+        justify-content: space-between;
+      }
+
       .hero {
         flex-direction: column;
         text-align: center;
+        padding-top: 3rem;
       }
 
       .hero-text {
@@ -620,13 +654,11 @@
       }
 
       .nav-links {
-        display: flex;
-        gap: 1rem;
+        gap: 0.8rem;
       }
 
       .nav-links a {
-        margin-left: 0;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -637,6 +669,7 @@
     document.body.classList.remove('no-js');
   </script>
 
+  <!-- Sticky Navbar -->
   <header>
     <nav>
       <div class="nav-links">
@@ -647,334 +680,388 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
+      
+      <!-- Theme Toggle Switch -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+        <span id="themeText">Dark</span>
+      </button>
     </nav>
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <img class="hero-img" src="ProfilePhoto.jpg" alt="Dr. Venugopalareddy Mekala" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Venugopalareddy+Mekala&size=190&background=36648B&color=fff';">
-      <div class="hero-text">
-        <h1>Venugopalareddy Mekala, Ph.D.</h1>
-        <p class="tagline">Computational Biologist | Bioinformatician | Machine Learning Scientist | Cancer Genomics & Multi-omics Researcher</p>
-      </div>
-    </section>
+    <!-- Full-Width Hero Section -->
+    <div class="hero-wrapper">
+      <section class="hero">
+        <img class="hero-img" src="ProfilePhoto.jpg" alt="Dr. Venugopalareddy Mekala" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Venugopalareddy+Mekala&size=180&background=25527B&color=fff';">
+        <div class="hero-text">
+          <h1>Venugopalareddy Mekala, Ph.D.</h1>
+          <p class="tagline">Computational Biologist | Bioinformatician | Machine Learning Scientist | Cancer Genomics & Multi-omics Researcher</p>
+        </div>
+      </section>
+    </div>
 
     <!-- About Section -->
-    <section id="about">
-      <h2>About</h2>
-      <div class="about-content">
-        <p>
-          I am a computational biologist with a Ph.D. in Bioinformatics, specializing in cancer genomics, multi-omics data integration, and machine learning. My research focuses on developing computational approaches to understand cancer biology and translate large-scale biological data into clinically meaningful insights.
-        </p>
-        <p>
-          My work spans transcriptomics, single-cell RNA sequencing, spatial transcriptomics, epigenomics, proteomics, mass spectrometry, and next-generation sequencing (NGS). I develop reproducible bioinformatics pipelines and predictive models to investigate the tumor microenvironment, identify biomarkers, and improve precision oncology.
-        </p>
-        <p>
-          I am passionate about bridging biology, data science, and medicine by combining computational methods with high-throughput technologies to address clinically relevant questions in cancer research.
-        </p>
-        <p>
-          Outside of research, I enjoy exploring hiking trails and discovering new places in nature.
-        </p>
-      </div>
-    </section>
+    <div class="section-wrapper">
+      <section id="about">
+        <h2>About</h2>
+        <div class="about-content">
+          <p>
+            I am a computational biologist with a Ph.D. in Bioinformatics, specializing in cancer genomics, multi-omics data integration, and machine learning. My research focuses on developing computational approaches to understand cancer biology and translate large-scale biological data into clinically meaningful insights.
+          </p>
+          <p>
+            My work spans transcriptomics, single-cell RNA sequencing, spatial transcriptomics, epigenomics, proteomics, mass spectrometry, and next-generation sequencing (NGS). I develop reproducible bioinformatics pipelines and predictive models to investigate the tumor microenvironment, identify biomarkers, and improve precision oncology.
+          </p>
+          <p>
+            I am passionate about bridging biology, data science, and medicine by combining computational methods with high-throughput technologies to address clinically relevant questions in cancer research.
+          </p>
+          <p>
+            Outside of research, I enjoy exploring hiking trails and discovering new places in nature.
+          </p>
+        </div>
+      </section>
+    </div>
 
     <!-- Interactive 3D Portfolio Carousel -->
-    <section id="portfolio" style="padding-bottom: 0;">
-      <h2>Research Focus Areas</h2>
-    </section>
-    
-    <div class="carousel-container">
-      <div class="carousel-scene">
-        <div class="carousel-track" id="carouselTrack">
+    <div class="section-wrapper alt">
+      <section id="portfolio" style="padding-bottom: 0;">
+        <h2>Research Focus Areas</h2>
+      </section>
+      
+      <div class="carousel-container">
+        <div class="carousel-scene">
+          <div class="carousel-track" id="carouselTrack">
 
-          <!-- Card 1 -->
-          <div class="project-card">
-            <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #36648B);">
-              <i class="fa-solid fa-dna"></i>
-              <div class="card-title-overlay">Single-Cell Transcriptomics</div>
+            <!-- Card 1 -->
+            <div class="project-card">
+              <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #25527B);">
+                <i class="fa-solid fa-dna"></i>
+                <div class="card-title-overlay">Single-Cell Transcriptomics</div>
+              </div>
+              <div class="project-info">
+                <h3>Single-Cell Transcriptomics</h3>
+                <p>Mapping protective plasma B-cell sub-populations in lung adenocarcinoma recurrence and analyzing immune cell heterogeneity in male breast cancer microenvironments using 10X Genomics workflows.</p>
+              </div>
             </div>
-            <div class="project-info">
-              <h3>Single-Cell Transcriptomics</h3>
-              <p>Mapping protective plasma B-cell sub-populations in lung adenocarcinoma recurrence and analyzing immune cell heterogeneity in male breast cancer microenvironments using 10X Genomics workflows.</p>
+
+            <!-- Card 2 -->
+            <div class="project-card">
+              <div class="card-visual" style="background: linear-gradient(135deg, #236356, #3B82F6);">
+                <i class="fa-solid fa-chart-line"></i>
+                <div class="card-title-overlay">Cancer Epigenomics</div>
+              </div>
+              <div class="project-info">
+                <h3>Epigenetic Regulators</h3>
+                <p>Uncovering the prognostic impact of epigenetic modifier aberrations in bladder cancer to stratify risk and evaluate patient clinical response to targeted therapies.</p>
+              </div>
             </div>
+
+            <!-- Card 3 -->
+            <div class="project-card">
+              <div class="card-visual" style="background: linear-gradient(135deg, #25527B, #236356);">
+                <i class="fa-solid fa-microscope"></i>
+                <div class="card-title-overlay">WGS & Rare Variants</div>
+              </div>
+              <div class="project-info">
+                <h3>Genomics & Rare Variants</h3>
+                <p>Analyzing Whole Genome Sequencing (WGS) datasets at Academia Sinica to identify rare population-specific genetic variants associated with metabolic conditions like gout.</p>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="project-card">
+              <div class="card-visual" style="background: linear-gradient(135deg, #0F172A, #25527B);">
+                <i class="fa-solid fa-network-wired"></i>
+                <div class="card-title-overlay">Machine Learning</div>
+              </div>
+              <div class="project-info">
+                <h3>Prognostic ML Models</h3>
+                <p>Engineering predictive machine learning models incorporating multi-omics integration and clinical indicators to forecast cancer progression and biomarker responsiveness.</p>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="project-card">
+              <div class="card-visual" style="background: linear-gradient(135deg, #236356, #1E293B);">
+                <i class="fa-solid fa-terminal"></i>
+                <div class="card-title-overlay">Reproducible Pipelines</div>
+              </div>
+              <div class="project-info">
+                <h3>Nextflow & HPC Pipelines</h3>
+                <p>Constructing scalable bioinformatics workflows with Nextflow, R, Python, and HPC infrastructure for automated bulk/small RNA-seq processing and multi-omics analysis.</p>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="project-card">
+              <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #236356);">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <div class="card-title-overlay">Integrative Physiology</div>
+              </div>
+              <div class="project-info">
+                <h3>Omics & Clinical Trials</h3>
+                <p>Conducting integrative multi-omics profiling of clinical trial data evaluating Sudarshan Kriya Yoga (SKY) and rhythmic breathwork on physiological and genomic dynamics.</p>
+              </div>
+            </div>
+
           </div>
-
-          <!-- Card 2 -->
-          <div class="project-card">
-            <div class="card-visual" style="background: linear-gradient(135deg, #2F6F62, #4F8A8B);">
-              <i class="fa-solid fa-chart-line"></i>
-              <div class="card-title-overlay">Cancer Epigenomics</div>
-            </div>
-            <div class="project-info">
-              <h3>Epigenetic Regulators</h3>
-              <p>Uncovering the prognostic impact of epigenetic modifier aberrations in bladder cancer to stratify risk and evaluate patient clinical response to targeted therapies.</p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="project-card">
-            <div class="card-visual" style="background: linear-gradient(135deg, #36648B, #2F6F62);">
-              <i class="fa-solid fa-microscope"></i>
-              <div class="card-title-overlay">WGS & Rare Variants</div>
-            </div>
-            <div class="project-info">
-              <h3>Genomics & Rare Variants</h3>
-              <p>Analyzing Whole Genome Sequencing (WGS) datasets at Academia Sinica to identify rare population-specific genetic variants associated with metabolic conditions like gout.</p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="project-card">
-            <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #4F8A8B);">
-              <i class="fa-solid fa-network-wired"></i>
-              <div class="card-title-overlay">Machine Learning</div>
-            </div>
-            <div class="project-info">
-              <h3>Prognostic ML Models</h3>
-              <p>Engineering predictive machine learning models incorporating multi-omics integration and clinical indicators to forecast cancer progression and biomarker responsiveness.</p>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="project-card">
-            <div class="card-visual" style="background: linear-gradient(135deg, #2F6F62, #36648B);">
-              <i class="fa-solid fa-terminal"></i>
-              <div class="card-title-overlay">Reproducible Pipelines</div>
-            </div>
-            <div class="project-info">
-              <h3>Nextflow & HPC Pipelines</h3>
-              <p>Constructing scalable bioinformatics workflows with Nextflow, R, Python, and HPC infrastructure for automated bulk/small RNA-seq processing and multi-omics analysis.</p>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="project-card">
-            <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #2F6F62);">
-              <i class="fa-solid fa-heart-pulse"></i>
-              <div class="card-title-overlay">Integrative Physiology</div>
-            </div>
-            <div class="project-info">
-              <h3>Omics & Clinical Trials</h3>
-              <p>Conducting integrative multi-omics profiling of clinical trial data evaluating Sudarshan Kriya Yoga (SKY) and rhythmic breathwork on physiological and genomic dynamics.</p>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
 
     <!-- Experience & Education Timeline -->
-    <section id="experience">
-      <h2>Experience & Education</h2>
-      <div class="timeline">
-        
-        <div class="timeline-item">
-          <div class="timeline-dot current"></div>
-          <span class="timeline-date">Sept 2025 &ndash; Present</span>
-          <div class="timeline-content">
-            <h3>Postdoctoral Fellow</h3>
-            <h4>University of Alabama at Birmingham (UAB), USA</h4>
-            <ul>
-              <li>Department of Nutrition Sciences · Dr. Ritu Aneja's Lab</li>
-            </ul>
+    <div class="section-wrapper">
+      <section id="experience">
+        <h2>Experience & Education</h2>
+        <div class="timeline">
+          
+          <div class="timeline-item">
+            <div class="timeline-dot current"></div>
+            <span class="timeline-date">Sept 2025 &ndash; Present</span>
+            <div class="timeline-content">
+              <h3>Postdoctoral Fellow</h3>
+              <h4>University of Alabama at Birmingham (UAB), USA</h4>
+              <ul>
+                <li>Department of Nutrition Sciences · Dr. Ritu Aneja's Lab</li>
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">July 2023 &ndash; August 2025</span>
-          <div class="timeline-content">
-            <h3>Postdoctoral Associate</h3>
-            <h4>Baylor College of Medicine, Houston, TX, USA</h4>
-            <ul>
-              <li>Focusing on single-cell transcriptomics and multi-omics profiling in cancer research.</li>
-            </ul>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">July 2023 &ndash; August 2025</span>
+            <div class="timeline-content">
+              <h3>Postdoctoral Associate</h3>
+              <h4>Baylor College of Medicine, Houston, TX, USA</h4>
+              <ul>
+                <li>Focusing on single-cell transcriptomics and multi-omics profiling in cancer research.</li>
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Jan 2023 &ndash; July 2023</span>
-          <div class="timeline-content">
-            <h3>Postdoctoral Fellow</h3>
-            <h4>Academia Sinica, Taiwan</h4>
-            <ul>
-              <li>Whole-genome sequencing analysis and variant discovery.</li>
-            </ul>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Jan 2023 &ndash; July 2023</span>
+            <div class="timeline-content">
+              <h3>Postdoctoral Fellow</h3>
+              <h4>Academia Sinica, Taiwan</h4>
+              <ul>
+                <li>Whole-genome sequencing analysis and variant discovery.</li>
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Feb 2019 &ndash; Jul 2022</span>
-          <div class="timeline-content">
-            <h3>Doctor of Philosophy (Ph.D.) &ndash; Bioinformatics</h3>
-            <h4>Asia University, Taiwan</h4>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Feb 2019 &ndash; Jul 2022</span>
+            <div class="timeline-content">
+              <h3>Doctor of Philosophy (Ph.D.) &ndash; Bioinformatics</h3>
+              <h4>Asia University, Taiwan</h4>
+            </div>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Sept 2017 &ndash; Jan 2019</span>
-          <div class="timeline-content">
-            <h3>Research Assistant</h3>
-            <h4>Osmania University, Hyderabad, India</h4>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Sept 2017 &ndash; Jan 2019</span>
+            <div class="timeline-content">
+              <h3>Research Assistant</h3>
+              <h4>Osmania University, Hyderabad, India</h4>
+            </div>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Jul 2015 &ndash; May 2017</span>
-          <div class="timeline-content">
-            <h3>Master's Degree (M.Pharm) &ndash; Pharmacology</h3>
-            <h4>Andhra University, India</h4>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Jul 2015 &ndash; May 2017</span>
+            <div class="timeline-content">
+              <h3>Master's Degree (M.Pharm) &ndash; Pharmacology</h3>
+              <h4>Andhra University, India</h4>
+            </div>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">2010 &ndash; 2013</span>
-          <div class="timeline-content">
-            <h3>Bachelor's Degree (B.Pharm) &ndash; Pharmacy</h3>
-            <h4>Andhra University, India</h4>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">2010 &ndash; 2013</span>
+            <div class="timeline-content">
+              <h3>Bachelor's Degree (B.Pharm) &ndash; Pharmacy</h3>
+              <h4>Andhra University, India</h4>
+            </div>
           </div>
+
         </div>
+      </section>
+    </div>
 
-      </div>
-    </section>
-
-    <!-- Selected Publications -->
-    <section id="publications">
-      <h2>Selected Publications</h2>
-      <div class="pub-grid">
-        
-        <div class="pub-card">
-          <h3>IL1R1 blockade augments CD40 agonist mediated immunity in pancreatic cancer.</h3>
-          <div class="pub-authors">Boda AR, Bandey IN, Chowdhury S, Aggarwal S, <strong>Mekala VR</strong>, Fowlkes NW, Anderson A, et al.</div>
-          <div class="pub-venue">Scientific Reports (2026)</div>
-        </div>
-
-        <div class="pub-card">
-          <h3>DHODH links mitochondrial bioenergetics, one-carbon metabolism, and DNA repair to sustain aggressive prostate adenocarcinoma.</h3>
-          <div class="pub-authors">Rajaratnam S, Piyarathna DWB, Mehta RK, <strong>Mekala VR</strong>, Park JH, Rasaily U, et al.</div>
-          <div class="pub-venue">Cell Communication and Signaling (2026)</div>
-        </div>
-
-        <div class="pub-card">
-          <h3>Gene signatures characterizing driver mutations in lung squamous carcinoma are predictive of the progression of pre-cancer lesions.</h3>
-          <div class="pub-authors">Lin Y, <strong>Mekala VR</strong>, Li J, Wang X, Aminu M, Wu J, Zhang J, Ripley RT, Amos CI, Cheng C.</div>
-          <div class="pub-venue">International Journal of Cancer (2025)</div>
-        </div>
-
-        <div class="pub-card">
-          <h3>Integrative Analysis Reveals the Prognostic Effects of Epigenetic Regulators in Bladder Cancer.</h3>
-          <div class="pub-authors"><strong>Mekala VR</strong>, Lin Y, Wang X, Chowdhury N, Li J, Cheng C.</div>
-          <div class="pub-venue">Cancer Medicine, 14(14): e71057 (2025)</div>
-        </div>
-
-        <div class="pub-card">
-          <h3>Whole-genome sequencing reveals rare variants associated with gout in Taiwanese males.</h3>
-          <div class="pub-authors">Tseng YP, Chang YS, <strong>Mekala VR</strong>, Liu TY, Chang JG, Shieh GS.</div>
-          <div class="pub-venue">Frontiers in Genetics, 15: 1423714 (2024)</div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Categorized Technical Expertise -->
-    <section id="skills">
-      <h2>Technical Expertise</h2>
-      <div class="skills-grid">
-        
-        <div class="skills-category">
-          <h3><i class="fa-solid fa-code"></i> Programming</h3>
-          <div class="badge-list">
-            <span class="badge">R</span>
-            <span class="badge">Python</span>
-            <span class="badge">Linux / Unix</span>
-            <span class="badge">HPC</span>
+    <!-- Publications Section -->
+    <div class="section-wrapper alt">
+      <section id="publications">
+        <h2>Selected Publications</h2>
+        <div class="pub-grid">
+          
+          <div class="pub-card">
+            <h3>IL1R1 blockade augments CD40 agonist mediated immunity in pancreatic cancer.</h3>
+            <div class="pub-authors">Boda AR, Bandey IN, Chowdhury S, Aggarwal S, <strong>Mekala VR</strong>, Fowlkes NW, Anderson A, et al.</div>
+            <div class="pub-venue">Scientific Reports (2026)</div>
           </div>
-        </div>
 
-        <div class="skills-category">
-          <h3><i class="fa-solid fa-gears"></i> Bioinformatics</h3>
-          <div class="badge-list">
-            <span class="badge">Nextflow</span>
-            <span class="badge">CellRanger</span>
-            <span class="badge">miRDeep2</span>
-            <span class="badge">RNA-seq pipelines</span>
+          <div class="pub-card">
+            <h3>DHODH links mitochondrial bioenergetics, one-carbon metabolism, and DNA repair to sustain aggressive prostate adenocarcinoma.</h3>
+            <div class="pub-authors">Rajaratnam S, Piyarathna DWB, Mehta RK, <strong>Mekala VR</strong>, Park JH, Rasaily U, et al.</div>
+            <div class="pub-venue">Cell Communication and Signaling (2026)</div>
           </div>
-        </div>
 
-        <div class="skills-category">
-          <h3><i class="fa-solid fa-layer-group"></i> Omics</h3>
-          <div class="badge-list">
-            <span class="badge">Bulk RNA-seq</span>
-            <span class="badge">Single-cell RNA-seq</span>
-            <span class="badge">Spatial Transcriptomics</span>
-            <span class="badge">Epigenomics</span>
-            <span class="badge">Proteomics</span>
+          <div class="pub-card">
+            <h3>Gene signatures characterizing driver mutations in lung squamous carcinoma are predictive of the progression of pre-cancer lesions.</h3>
+            <div class="pub-authors">Lin Y, <strong>Mekala VR</strong>, Li J, Wang X, Aminu M, Wu J, Zhang J, Ripley RT, Amos CI, Cheng C.</div>
+            <div class="pub-venue">International Journal of Cancer (2025)</div>
           </div>
-        </div>
 
-        <div class="skills-category">
-          <h3><i class="fa-solid fa-brain"></i> Methods</h3>
-          <div class="badge-list">
-            <span class="badge">Machine Learning</span>
-            <span class="badge">Statistical Modeling</span>
-            <span class="badge">Multi-omics Integration</span>
+          <div class="pub-card">
+            <h3>Integrative Analysis Reveals the Prognostic Effects of Epigenetic Regulators in Bladder Cancer.</h3>
+            <div class="pub-authors"><strong>Mekala VR</strong>, Lin Y, Wang X, Chowdhury N, Li J, Cheng C.</div>
+            <div class="pub-venue">Cancer Medicine, 14(14): e71057 (2025)</div>
           </div>
-        </div>
 
-        <div class="skills-category">
-          <h3><i class="fa-solid fa-vial"></i> Wet Lab</h3>
-          <div class="badge-list">
-            <span class="badge">RT-PCR</span>
-            <span class="badge">ELISA</span>
-            <span class="badge">Western Blot</span>
-            <span class="badge">IHC</span>
+          <div class="pub-card">
+            <h3>Whole-genome sequencing reveals rare variants associated with gout in Taiwanese males.</h3>
+            <div class="pub-authors">Tseng YP, Chang YS, <strong>Mekala VR</strong>, Liu TY, Chang JG, Shieh GS.</div>
+            <div class="pub-venue">Frontiers in Genetics, 15: 1423714 (2024)</div>
           </div>
-        </div>
 
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
+
+    <!-- Technical Expertise Grid -->
+    <div class="section-wrapper">
+      <section id="skills">
+        <h2>Technical Expertise</h2>
+        <div class="skills-grid">
+          
+          <div class="skills-category">
+            <h3><i class="fa-solid fa-code"></i> Programming</h3>
+            <div class="badge-list">
+              <span class="badge">R</span>
+              <span class="badge">Python</span>
+              <span class="badge">Linux / Unix</span>
+              <span class="badge">HPC</span>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3><i class="fa-solid fa-gears"></i> Bioinformatics</h3>
+            <div class="badge-list">
+              <span class="badge">Nextflow</span>
+              <span class="badge">CellRanger</span>
+              <span class="badge">miRDeep2</span>
+              <span class="badge">RNA-seq pipelines</span>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3><i class="fa-solid fa-layer-group"></i> Omics</h3>
+            <div class="badge-list">
+              <span class="badge">Bulk RNA-seq</span>
+              <span class="badge">Single-cell RNA-seq</span>
+              <span class="badge">Spatial Transcriptomics</span>
+              <span class="badge">Epigenomics</span>
+              <span class="badge">Proteomics</span>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3><i class="fa-solid fa-brain"></i> Methods</h3>
+            <div class="badge-list">
+              <span class="badge">Machine Learning</span>
+              <span class="badge">Statistical Modeling</span>
+              <span class="badge">Multi-omics Integration</span>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3><i class="fa-solid fa-vial"></i> Wet Lab</h3>
+            <div class="badge-list">
+              <span class="badge">RT-PCR</span>
+              <span class="badge">ELISA</span>
+              <span class="badge">Western Blot</span>
+              <span class="badge">IHC</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
 
     <!-- Contact Section -->
-    <section id="contact">
-      <h2>Connect & Contact</h2>
-      <div class="contact-container">
-        <p class="contact-subtext">
-          I'm always happy to discuss research collaborations, computational biology, bioinformatics, and multi-omics research.
-        </p>
-        <div class="contact-bar">
-          <a href="mailto:mekalavenugopalareddy.bioinfo@gmail.com" class="contact-btn">
-            <i class="fa-regular fa-envelope"></i> Email
-          </a>
-          <a href="https://www.linkedin.com/in/venugopalareddy-mekala-phd-56807658" target="_blank" rel="noopener" class="contact-btn">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/venu887" target="_blank" rel="noopener" class="contact-btn">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-          <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener" class="contact-btn">
-            <i class="ai ai-google-scholar"></i> Scholar
-          </a>
-          <a href="https://orcid.org/0000-0001-7193-3682" target="_blank" rel="noopener" class="contact-btn">
-            <i class="ai ai-orcid"></i> ORCID
-          </a>
+    <div class="section-wrapper alt">
+      <section id="contact">
+        <h2>Connect & Contact</h2>
+        <div class="contact-container">
+          <p class="contact-subtext">
+            I'm always happy to discuss research collaborations, computational biology, bioinformatics, and multi-omics research.
+          </p>
+          <div class="contact-bar">
+            <a href="mailto:mekalavenugopalareddy.bioinfo@gmail.com" class="contact-btn">
+              <i class="fa-regular fa-envelope"></i> Email
+            </a>
+            <a href="https://www.linkedin.com/in/venugopalareddy-mekala-phd-56807658" target="_blank" rel="noopener" class="contact-btn">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/venu887" target="_blank" rel="noopener" class="contact-btn">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener" class="contact-btn">
+              <i class="ai ai-google-scholar"></i> Scholar
+            </a>
+            <a href="https://orcid.org/0000-0001-7193-3682" target="_blank" rel="noopener" class="contact-btn">
+              <i class="ai ai-orcid"></i> ORCID
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer>
     <p>&copy; Venugopalareddy Mekala, Ph.D. · Computational Biologist · Hosted on GitHub Pages</p>
   </footer>
 
-  <!-- 3D Ferris Wheel Carousel JavaScript Engine -->
+  <!-- Theme Switching & 3D Carousel JavaScript Engine -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      /* Dark/Light Theme Switching System */
+      const themeToggleBtn = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const themeText = document.getElementById('themeText');
+      
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      const currentTheme = localStorage.getItem('theme');
+
+      if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'fa-solid fa-sun';
+        themeText.textContent = 'Light';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeIcon.className = 'fa-solid fa-moon';
+        themeText.textContent = 'Dark';
+      }
+
+      themeToggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+          themeIcon.className = 'fa-solid fa-moon';
+          themeText.textContent = 'Dark';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          themeIcon.className = 'fa-solid fa-sun';
+          themeText.textContent = 'Light';
+        }
+      });
+
+      /* 3D Carousel Architecture */
       const track = document.getElementById('carouselTrack');
       const cards = Array.from(document.querySelectorAll('.project-card'));
 
