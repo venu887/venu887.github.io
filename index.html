@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Venugopalareddy Mekala, Ph.D. · Computational Biologist</title>
-  <meta name="description" content="Personal homepage of Dr. Venugopalareddy Mekala, Postdoctoral Scholar at UAB specializing in Computational Biology, Cancer Genomics, and Multi-omics.">
+  <meta name="description" content="Personal homepage of Dr. Venugopalareddy Mekala, Postdoctoral Scholar specializing in Computational Biology, Cancer Genomics, and Multi-omics.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,17 +17,18 @@
 
   <style>
     :root {
-      --bg-color: #0d0d12;
-      --text-color: #e0e0e0;
-      --text-muted: #aaa;
-      --accent-color: #bb86fc;
-      --secondary-color: #03dac6;
-      --gradient-1: linear-gradient(135deg, #4a148c, #880e4f);
-      --gradient-2: linear-gradient(135deg, #1a237e, #006064);
-      --card-bg: #1e1e24;
-      --nav-bg: rgba(13, 13, 18, 0.95);
+      --bg-color: #F8FAFC;
+      --text-color: #1F2937;
+      --text-muted: #6B7280;
+      --primary-color: #36648B;
+      --accent-color: #2F6F62;
+      --highlight-color: #DCEAF3;
+      --badge-bg: #EAF2F8;
+      --card-bg: #FFFFFF;
+      --nav-bg: rgba(255, 255, 255, 0.95);
       --font-main: 'Inter', sans-serif;
-      --primary-color: #bb86fc;
+      --gradient-1: linear-gradient(135deg, #36648B, #2F6F62);
+      --border-color: #E2E8F0;
     }
 
     * {
@@ -45,7 +46,7 @@
     }
 
     a {
-      color: var(--secondary-color);
+      color: var(--primary-color);
       text-decoration: none;
       transition: color 0.3s;
     }
@@ -61,7 +62,7 @@
       background-color: var(--nav-bg);
       backdrop-filter: blur(10px);
       z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid var(--border-color);
       padding: 1rem 0;
     }
 
@@ -69,21 +70,16 @@
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding: 0 2rem;
     }
 
-    .brand {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #fff;
-    }
-
     .nav-links a {
       margin-left: 2rem;
-      color: #ccc;
+      color: var(--text-color);
       font-weight: 500;
+      transition: color 0.2s;
     }
 
     .nav-links a:hover {
@@ -98,85 +94,64 @@
       justify-content: center;
       align-items: center;
       gap: 2.5rem;
-      background: radial-gradient(circle at 50% 50%, rgba(74, 20, 140, 0.25), transparent 70%);
-      padding: 4rem 2rem 2rem 2rem;
+      padding: 4rem 2rem 3rem 2rem;
+      background: linear-gradient(180deg, var(--highlight-color) 0%, var(--bg-color) 100%);
     }
 
     .hero-img {
-      width: 200px;
-      height: 200px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--accent-color);
-      box-shadow: 0 0 25px rgba(187, 134, 252, 0.4);
-      background-color: #333;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 10px 25px rgba(54, 100, 139, 0.2);
+      background-color: #E2E8F0;
       flex-shrink: 0;
     }
 
     .hero-text {
       text-align: left;
-      max-width: 700px;
+      max-width: 750px;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(2rem, 4.5vw, 3rem);
       margin-bottom: 0.5rem;
-      background: linear-gradient(to right, #fff, #b39ddb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
 
     .hero .tagline {
-      font-size: 1.35rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 1rem;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      font-size: 0.95rem;
-    }
-
-    .hero-links a {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .hero-links a:hover {
-      background: rgba(187, 134, 252, 0.15);
-      border-color: var(--accent-color);
+      font-size: 1.15rem;
+      color: var(--text-color);
+      font-weight: 600;
+      line-height: 1.4;
     }
 
     /* Sections */
     section {
-      padding: 3rem 2rem;
-      max-width: 1200px;
+      padding: 3.5rem 2rem;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     h2 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: 2.5rem;
       text-align: center;
-      color: #fff;
+      color: var(--primary-color);
       position: relative;
+      font-weight: 700;
     }
 
     h2::after {
       content: '';
       display: block;
-      width: 60px;
+      width: 50px;
       height: 4px;
       background: var(--gradient-1);
-      margin: 0.8rem auto 0;
+      margin: 0.6rem auto 0;
       border-radius: 2px;
     }
 
@@ -184,9 +159,17 @@
     .about-content {
       max-width: 850px;
       margin: 0 auto;
-      font-size: 1.15rem;
-      text-align: center;
-      color: #ccc;
+      font-size: 1.08rem;
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+
+    .about-content p {
+      margin-bottom: 1.2rem;
+    }
+
+    .about-content p:last-child {
+      margin-bottom: 0;
     }
 
     /* 3D Carousel Styles */
@@ -194,7 +177,7 @@
       position: relative;
       overflow: hidden;
       padding: 0 0 2rem 0;
-      margin-top: -50px;
+      margin-top: -30px;
       margin-bottom: -350px;
       z-index: 10;
     }
@@ -224,13 +207,13 @@
       position: absolute;
       top: 250px;
       left: 50%;
-      width: 310px;
+      width: 320px;
       height: 400px;
       margin-top: -200px;
-      margin-left: -155px;
+      margin-left: -160px;
       background: var(--card-bg);
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.12);
       transform-style: preserve-3d;
       will-change: transform, opacity;
       transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s;
@@ -239,7 +222,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
       cursor: pointer;
     }
 
@@ -248,13 +231,16 @@
       width: 100%;
       height: 100%;
       transition: height 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1E3A5F, #36648B);
+      color: white;
     }
 
-    .project-thumb {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
+    .card-visual i {
+      font-size: 3.5rem;
+      opacity: 0.9;
     }
 
     .card-title-overlay {
@@ -263,16 +249,17 @@
       left: 0;
       width: 100%;
       padding: 1.2rem;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
       color: white;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       opacity: 1;
       transition: opacity 0.3s;
+      text-align: center;
     }
 
     .project-info {
-      padding: 1.5rem;
+      padding: 1.25rem 1.5rem;
       background: var(--card-bg);
       flex-grow: 1;
       opacity: 0;
@@ -284,20 +271,14 @@
     .project-info h3 {
       margin-top: 0;
       color: var(--primary-color);
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .project-year {
-      color: var(--secondary-color);
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
     }
 
     .project-info p {
       font-size: 0.9rem;
-      color: #ccc;
+      color: var(--text-color);
+      line-height: 1.5;
     }
 
     /* Focus State for 3D Carousel */
@@ -306,11 +287,11 @@
       pointer-events: auto;
       z-index: 100 !important;
       border-color: var(--primary-color);
-      box-shadow: 0 0 40px rgba(187, 134, 252, 0.35);
+      box-shadow: 0 15px 35px rgba(54, 100, 139, 0.25);
     }
 
     .carousel-track:not(.is-dragging) .project-card.focused .card-visual {
-      height: 180px;
+      height: 150px;
     }
 
     .carousel-track:not(.is-dragging) .project-card.focused .card-title-overlay {
@@ -341,7 +322,7 @@
     body.no-js .carousel-track {
       transform-style: flat;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       padding: 0 1rem;
       height: auto;
@@ -357,11 +338,11 @@
       display: flex;
       flex-direction: column;
       height: auto;
-      min-height: 400px;
+      min-height: 380px;
     }
 
     body.no-js .project-card .card-visual {
-      height: 180px;
+      height: 150px;
     }
 
     body.no-js .project-card .card-title-overlay {
@@ -388,73 +369,74 @@
       transform: translateX(-50%);
       width: 2px;
       height: 100%;
-      background: rgba(255, 255, 255, 0.15);
+      background: #CBD5E1;
     }
 
     .timeline-item {
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       position: relative;
       width: 50%;
     }
 
     .timeline-item:nth-child(odd) {
       left: 0;
-      padding-right: 3rem;
+      padding-right: 2.5rem;
       text-align: right;
     }
 
     .timeline-item:nth-child(even) {
       left: 50%;
-      padding-left: 3rem;
+      padding-left: 2.5rem;
       text-align: left;
     }
 
     .timeline-dot {
       position: absolute;
       top: 0;
-      width: 18px;
-      height: 18px;
-      background: var(--accent-color);
+      width: 16px;
+      height: 16px;
+      background: var(--primary-color);
       border-radius: 50%;
-      box-shadow: 0 0 0 4px rgba(187, 134, 252, 0.2);
+      box-shadow: 0 0 0 4px var(--highlight-color);
     }
 
     .timeline-item:nth-child(odd) .timeline-dot {
-      right: -9px;
+      right: -8px;
     }
 
     .timeline-item:nth-child(even) .timeline-dot {
-      left: -9px;
+      left: -8px;
     }
 
     .timeline-dot.current {
-      animation: pulse 3s infinite;
+      animation: pulse 2.5s infinite;
+      background: var(--accent-color);
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(187, 134, 252, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(187, 134, 252, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(187, 134, 252, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(47, 111, 98, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(47, 111, 98, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(47, 111, 98, 0); }
     }
 
     .timeline-date {
       font-weight: 700;
-      color: var(--secondary-color);
-      margin-bottom: 0.3rem;
+      color: var(--accent-color);
+      margin-bottom: 0.2rem;
       display: block;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .timeline-content h3 {
-      color: #fff;
+      color: var(--primary-color);
       margin-bottom: 0.2rem;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
 
     .timeline-content h4 {
-      font-weight: 400;
+      font-weight: 500;
       color: var(--text-muted);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.5rem;
       font-style: italic;
       font-size: 0.95rem;
     }
@@ -465,8 +447,7 @@
 
     .timeline-content li {
       font-size: 0.92rem;
-      color: #ccc;
-      margin-bottom: 0.4rem;
+      color: var(--text-color);
     }
 
     /* Publications Grid */
@@ -480,104 +461,132 @@
 
     .pub-card {
       background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-left: 4px solid var(--accent-color);
-      padding: 1.25rem;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      padding: 1.25rem 1.5rem;
       border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     }
 
     .pub-card h3 {
       font-size: 1.05rem;
-      color: #fff;
+      color: var(--primary-color);
       margin-bottom: 0.4rem;
+      line-height: 1.4;
     }
 
     .pub-authors {
       font-size: 0.9rem;
-      color: #aaa;
+      color: var(--text-muted);
       margin-bottom: 0.3rem;
     }
 
     .pub-venue {
-      font-size: 0.85rem;
-      color: var(--secondary-color);
+      font-size: 0.88rem;
+      color: var(--accent-color);
       font-weight: 600;
     }
 
-    /* Skills Badges */
-    .skills-container {
+    /* Technical Expertise Categorized Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .skills-category {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .skills-category h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--highlight-color);
+      padding-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge-list {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      background: var(--badge-bg);
+      border: 1px solid rgba(54, 100, 139, 0.15);
+      color: #1E3A5F;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 6px;
+    }
+
+    /* Compact Contact Section */
+    .contact-container {
+      text-align: center;
       max-width: 800px;
       margin: 0 auto;
     }
 
-    .badge {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #ddd;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.85rem;
-      border-radius: 20px;
+    .contact-subtext {
+      font-size: 1.05rem;
+      color: var(--text-color);
+      margin-bottom: 2rem;
     }
 
-    /* Contact Section Cards */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .contact-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1.5rem 1rem;
-      text-align: center;
+    .contact-bar {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 0.8rem;
-      color: #fff;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      gap: 1.2rem;
+      flex-wrap: wrap;
     }
 
-    .contact-card i {
-      font-size: 2.2rem;
-      color: var(--accent-color);
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .contact-card span {
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--primary-color);
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
     }
 
-    .contact-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-color);
-      box-shadow: 0 8px 25px rgba(187, 134, 252, 0.2);
-      color: #fff;
+    .contact-btn i {
+      font-size: 1.1rem;
     }
 
-    .contact-card:hover i {
-      color: var(--secondary-color);
-      transform: scale(1.1);
+    .contact-btn:hover {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(54, 100, 139, 0.25);
     }
 
     /* Footer */
     footer {
-      background-color: #050508;
-      padding: 3rem 0;
+      background-color: #0F172A;
+      color: #94A3B8;
+      padding: 2.5rem 0;
       text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
       margin-top: 4rem;
       font-size: 0.9rem;
-      color: var(--text-muted);
     }
 
     /* Responsive */
@@ -598,14 +607,14 @@
       .timeline-item {
         width: 100%;
         left: 0 !important;
-        padding-left: 50px !important;
+        padding-left: 45px !important;
         padding-right: 0 !important;
         text-align: left !important;
       }
 
       .timeline-item:nth-child(odd) .timeline-dot,
       .timeline-item:nth-child(even) .timeline-dot {
-        left: 10px;
+        left: 12px;
         right: auto;
       }
 
@@ -629,12 +638,12 @@
 
   <header>
     <nav>
-      <a href="#" class="brand">Dr. Venugopalareddy Mekala</a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#portfolio">Research</a>
         <a href="#experience">Experience</a>
         <a href="#publications">Publications</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -643,29 +652,28 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-img" style="background: linear-gradient(135deg, #4a148c, #1a237e); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem; font-weight: bold;">VM</div>
+      <img class="hero-img" src="ProfilePhoto.jpg" alt="Dr. Venugopalareddy Mekala" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Venugopalareddy+Mekala&size=190&background=36648B&color=fff';">
       <div class="hero-text">
         <h1>Venugopalareddy Mekala, Ph.D.</h1>
-        <p class="tagline">Computational Biologist & Cancer Genomics Researcher</p>
-        <div class="hero-links">
-          <a href="https://github.com/venu887" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i> Google Scholar</a>
-          <a href="#" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a href="mailto:your.email@uab.edu"><i class="fa-regular fa-envelope"></i> Email</a>
-        </div>
+        <p class="tagline">Computational Biologist | Bioinformatician | Machine Learning Scientist | Cancer Genomics & Multi-omics Researcher</p>
       </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-      <h2>About Me</h2>
+      <h2>About</h2>
       <div class="about-content">
         <p>
-          I am a Postdoctoral Scholar at the <strong>University of Alabama at Birmingham (UAB)</strong> in Dr. Ritu Aneja's Lab (Department of Nutrition Sciences).
+          I am a computational biologist with a Ph.D. in Bioinformatics, specializing in cancer genomics, multi-omics data integration, and machine learning. My research focuses on developing computational approaches to understand cancer biology and translate large-scale biological data into clinically meaningful insights.
         </p>
-        <br>
         <p>
-          My research combines <strong>Computational Biology, Single-Cell RNA-seq, Spatial Transcriptomics, and Epigenomics</strong> with machine learning models to decode tumor microenvironments and predict clinical outcomes in oncology.
+          My work spans transcriptomics, single-cell RNA sequencing, spatial transcriptomics, epigenomics, proteomics, mass spectrometry, and next-generation sequencing (NGS). I develop reproducible bioinformatics pipelines and predictive models to investigate the tumor microenvironment, identify biomarkers, and improve precision oncology.
+        </p>
+        <p>
+          I am passionate about bridging biology, data science, and medicine by combining computational methods with high-throughput technologies to address clinically relevant questions in cancer research.
+        </p>
+        <p>
+          Outside of research, I enjoy exploring hiking trails and discovering new places in nature.
         </p>
       </div>
     </section>
@@ -681,66 +689,73 @@
 
           <!-- Card 1 -->
           <div class="project-card">
-            <div class="card-visual">
-              <div class="project-thumb" style="background: linear-gradient(135deg, #4a148c, #880e4f);"></div>
-              <div class="card-title-overlay">Single-Cell RNA-seq</div>
+            <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #36648B);">
+              <i class="fa-solid fa-dna"></i>
+              <div class="card-title-overlay">Single-Cell Transcriptomics</div>
             </div>
             <div class="project-info">
               <h3>Single-Cell Transcriptomics</h3>
-              <p class="project-year">2023&ndash;Present</p>
-              <p>Mapping protective plasma cell sub-populations in lung adenocarcinoma and immune cell dynamics in male breast cancer using 10X Genomics & CellRanger pipelines.</p>
+              <p>Mapping protective plasma B-cell sub-populations in lung adenocarcinoma recurrence and analyzing immune cell heterogeneity in male breast cancer microenvironments using 10X Genomics workflows.</p>
             </div>
           </div>
 
           <!-- Card 2 -->
           <div class="project-card">
-            <div class="card-visual">
-              <div class="project-thumb" style="background: linear-gradient(135deg, #1a237e, #006064);"></div>
+            <div class="card-visual" style="background: linear-gradient(135deg, #2F6F62, #4F8A8B);">
+              <i class="fa-solid fa-chart-line"></i>
               <div class="card-title-overlay">Cancer Epigenomics</div>
             </div>
             <div class="project-info">
               <h3>Epigenetic Regulators</h3>
-              <p class="project-year">2023&ndash;2025</p>
-              <p>Uncovering prognostic impacts of epigenetic modifier aberrations in bladder cancer to predict patient response to immunotherapy.</p>
+              <p>Uncovering the prognostic impact of epigenetic modifier aberrations in bladder cancer to stratify risk and evaluate patient clinical response to targeted therapies.</p>
             </div>
           </div>
 
           <!-- Card 3 -->
           <div class="project-card">
-            <div class="card-visual">
-              <div class="project-thumb" style="background: linear-gradient(135deg, #004d40, #00695c);"></div>
+            <div class="card-visual" style="background: linear-gradient(135deg, #36648B, #2F6F62);">
+              <i class="fa-solid fa-microscope"></i>
               <div class="card-title-overlay">WGS & Rare Variants</div>
             </div>
             <div class="project-info">
               <h3>Genomics & Rare Variants</h3>
-              <p class="project-year">2023</p>
-              <p>Analyzed Whole Genome Sequencing (WGS) data at Academia Sinica to identify rare population-specific variants associated with gout in Taiwan.</p>
+              <p>Analyzing Whole Genome Sequencing (WGS) datasets at Academia Sinica to identify rare population-specific genetic variants associated with metabolic conditions like gout.</p>
             </div>
           </div>
 
           <!-- Card 4 -->
           <div class="project-card">
-            <div class="card-visual">
-              <div class="project-thumb" style="background: linear-gradient(135deg, #bf360c, #d84315);"></div>
+            <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #4F8A8B);">
+              <i class="fa-solid fa-network-wired"></i>
               <div class="card-title-overlay">Machine Learning</div>
             </div>
             <div class="project-info">
               <h3>Prognostic ML Models</h3>
-              <p class="project-year">Ongoing</p>
-              <p>Developing Machine Learning classifiers incorporating clinical indicators and TCGA multi-omics datasets to predict cancer progression.</p>
+              <p>Engineering predictive machine learning models incorporating multi-omics integration and clinical indicators to forecast cancer progression and biomarker responsiveness.</p>
             </div>
           </div>
 
           <!-- Card 5 -->
           <div class="project-card">
-            <div class="card-visual">
-              <div class="project-thumb" style="background: linear-gradient(135deg, #311b92, #4527a0);"></div>
-              <div class="card-title-overlay">Nextflow & HPC</div>
+            <div class="card-visual" style="background: linear-gradient(135deg, #2F6F62, #36648B);">
+              <i class="fa-solid fa-terminal"></i>
+              <div class="card-title-overlay">Reproducible Pipelines</div>
             </div>
             <div class="project-info">
-              <h3>Reproducible Pipelines</h3>
-              <p class="project-year">Ongoing</p>
-              <p>Constructing scalable bioinformatics workflows with Nextflow, R, Python, and HPC infrastructure for automated bulk/small RNA-seq processing.</p>
+              <h3>Nextflow & HPC Pipelines</h3>
+              <p>Constructing scalable bioinformatics workflows with Nextflow, R, Python, and HPC infrastructure for automated bulk/small RNA-seq processing and multi-omics analysis.</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="project-card">
+            <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #2F6F62);">
+              <i class="fa-solid fa-heart-pulse"></i>
+              <div class="card-title-overlay">Integrative Physiology</div>
+            </div>
+            <div class="project-info">
+              <h3>Omics & Clinical Trials</h3>
+              <p>Conducting integrative multi-omics profiling of clinical trial data evaluating Sudarshan Kriya Yoga (SKY) and rhythmic breathwork on physiological and genomic dynamics.</p>
             </div>
           </div>
 
@@ -748,9 +763,9 @@
       </div>
     </div>
 
-    <!-- Experience Timeline -->
+    <!-- Experience & Education Timeline -->
     <section id="experience">
-      <h2>Professional Experience</h2>
+      <h2>Experience & Education</h2>
       <div class="timeline">
         
         <div class="timeline-item">
@@ -760,7 +775,7 @@
             <h3>Postdoctoral Fellow</h3>
             <h4>University of Alabama at Birmingham (UAB), USA</h4>
             <ul>
-              <li>Focusing on Nutrition Sciences Research & integrative multi-omics in Dr. Ritu Aneja's Lab.</li>
+              <li>Department of Nutrition Sciences · Dr. Ritu Aneja's Lab</li>
             </ul>
           </div>
         </div>
@@ -772,8 +787,7 @@
             <h3>Postdoctoral Associate</h3>
             <h4>Baylor College of Medicine, Houston, TX, USA</h4>
             <ul>
-              <li>Led study on epigenetic modifier aberrations in bladder cancer published in <em>Cancer Medicine</em>.</li>
-              <li>Analyzed scRNA-seq datasets for lung adenocarcinoma and male breast cancer.</li>
+              <li>Focusing on single-cell transcriptomics and multi-omics profiling in cancer research.</li>
             </ul>
           </div>
         </div>
@@ -785,9 +799,17 @@
             <h3>Postdoctoral Fellow</h3>
             <h4>Academia Sinica, Taiwan</h4>
             <ul>
-              <li>Utilized WGS data to discover rare genetic variants in gout.</li>
-              <li>Engineered ML models predicting immunotherapy response rates.</li>
+              <li>Whole-genome sequencing analysis and variant discovery.</li>
             </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">Feb 2019 &ndash; Jul 2022</span>
+          <div class="timeline-content">
+            <h3>Doctor of Philosophy (Ph.D.) &ndash; Bioinformatics</h3>
+            <h4>Asia University, Taiwan</h4>
           </div>
         </div>
 
@@ -797,9 +819,24 @@
           <div class="timeline-content">
             <h3>Research Assistant</h3>
             <h4>Osmania University, Hyderabad, India</h4>
-            <ul>
-              <li>Investigated Calcineurin downregulation in cervical cancer progression.</li>
-            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">Jul 2015 &ndash; May 2017</span>
+          <div class="timeline-content">
+            <h3>Master's Degree (M.Pharm) &ndash; Pharmacology</h3>
+            <h4>Andhra University, India</h4>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2010 &ndash; 2013</span>
+          <div class="timeline-content">
+            <h3>Bachelor's Degree (B.Pharm) &ndash; Pharmacy</h3>
+            <h4>Andhra University, India</h4>
           </div>
         </div>
 
@@ -844,55 +881,94 @@
       </div>
     </section>
 
-    <!-- Technical Skills -->
+    <!-- Categorized Technical Expertise -->
     <section id="skills">
       <h2>Technical Expertise</h2>
-      <div class="skills-container">
-        <span class="badge">R</span>
-        <span class="badge">Python</span>
-        <span class="badge">Linux / Unix</span>
-        <span class="badge">Nextflow</span>
-        <span class="badge">CellRanger (10X Genomics)</span>
-        <span class="badge">miRDeep2</span>
-        <span class="badge">Single-Cell RNA-seq</span>
-        <span class="badge">Spatial Transcriptomics</span>
-        <span class="badge">High-Performance Computing (HPC)</span>
-        <span class="badge">Machine Learning</span>
-        <span class="badge">Epigenomics</span>
-        <span class="badge">Wet Lab (RT-PCR, ELISA, IHC)</span>
+      <div class="skills-grid">
+        
+        <div class="skills-category">
+          <h3><i class="fa-solid fa-code"></i> Programming</h3>
+          <div class="badge-list">
+            <span class="badge">R</span>
+            <span class="badge">Python</span>
+            <span class="badge">Linux / Unix</span>
+            <span class="badge">HPC</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3><i class="fa-solid fa-gears"></i> Bioinformatics</h3>
+          <div class="badge-list">
+            <span class="badge">Nextflow</span>
+            <span class="badge">CellRanger</span>
+            <span class="badge">miRDeep2</span>
+            <span class="badge">RNA-seq pipelines</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3><i class="fa-solid fa-layer-group"></i> Omics</h3>
+          <div class="badge-list">
+            <span class="badge">Bulk RNA-seq</span>
+            <span class="badge">Single-cell RNA-seq</span>
+            <span class="badge">Spatial Transcriptomics</span>
+            <span class="badge">Epigenomics</span>
+            <span class="badge">Proteomics</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3><i class="fa-solid fa-brain"></i> Methods</h3>
+          <div class="badge-list">
+            <span class="badge">Machine Learning</span>
+            <span class="badge">Statistical Modeling</span>
+            <span class="badge">Multi-omics Integration</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3><i class="fa-solid fa-vial"></i> Wet Lab</h3>
+          <div class="badge-list">
+            <span class="badge">RT-PCR</span>
+            <span class="badge">ELISA</span>
+            <span class="badge">Western Blot</span>
+            <span class="badge">IHC</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Contact & Social Icons Section -->
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Connect & Contact</h2>
-      <div class="contact-grid">
-        <a href="mailto:your.email@uab.edu" class="contact-card">
-          <i class="fa-regular fa-envelope"></i>
-          <span>Email</span>
-        </a>
-        <a href="https://github.com/venu887" target="_blank" rel="noopener" class="contact-card">
-          <i class="fa-brands fa-github"></i>
-          <span>GitHub</span>
-        </a>
-        <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener" class="contact-card">
-          <i class="ai ai-google-scholar"></i>
-          <span>Google Scholar</span>
-        </a>
-        <a href="#" target="_blank" rel="noopener" class="contact-card">
-          <i class="fa-brands fa-linkedin"></i>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://orcid.org/" target="_blank" rel="noopener" class="contact-card">
-          <i class="ai ai-orcid"></i>
-          <span>ORCID</span>
-        </a>
+      <div class="contact-container">
+        <p class="contact-subtext">
+          I'm always happy to discuss research collaborations, computational biology, bioinformatics, and multi-omics research.
+        </p>
+        <div class="contact-bar">
+          <a href="mailto:mekalavenugopalareddy.bioinfo@gmail.com" class="contact-btn">
+            <i class="fa-regular fa-envelope"></i> Email
+          </a>
+          <a href="https://www.linkedin.com/in/venugopalareddy-mekala-phd-56807658" target="_blank" rel="noopener" class="contact-btn">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/venu887" target="_blank" rel="noopener" class="contact-btn">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener" class="contact-btn">
+            <i class="ai ai-google-scholar"></i> Scholar
+          </a>
+          <a href="https://orcid.org/0000-0001-7193-3682" target="_blank" rel="noopener" class="contact-btn">
+            <i class="ai ai-orcid"></i> ORCID
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; Venugopalareddy Mekala, Ph.D. · Built with modern CSS & 3D JS Architecture · Hosted on GitHub Pages</p>
+    <p>&copy; Venugopalareddy Mekala, Ph.D. · Computational Biologist · Hosted on GitHub Pages</p>
   </footer>
 
   <!-- 3D Ferris Wheel Carousel JavaScript Engine -->
@@ -905,7 +981,7 @@
 
       const RADIUS = 550;
       const VISIBLE_ARC = 120;
-      const CARD_SPACING_DEG = 22;
+      const CARD_SPACING_DEG = 20;
 
       let targetIndex = 0;
       let isDragging = false;
@@ -934,9 +1010,9 @@
           const x = RADIUS * Math.sin(thetaRad);
           const y = RADIUS * (1 - Math.cos(thetaRad));
           const z = -Math.abs(offset) * 50;
-          const rotateZ = offset * 5;
+          const rotateZ = offset * 4;
           const scale = 1 - Math.abs(offset) * 0.05;
-          const opacity = 1 - Math.abs(offset) * 0.2;
+          const opacity = 1 - Math.abs(offset) * 0.18;
 
           card.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateZ(${rotateZ}deg) scale(${Math.max(scale, 0)})`;
           card.style.opacity = Math.max(opacity, 0);
