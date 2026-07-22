@@ -1,358 +1,930 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venugopalareddy Mekala, Ph.D. | Computational Biologist</title>
-    <meta name="description" content="Personal academic homepage of Venugopalareddy Mekala, Ph.D. - Postdoctoral Scholar in Computational Biology and Cancer Genomics at UAB.">
-    <style>
-        :root {
-            --bg-color: #fcfcfc;
-            --text-color: #222222;
-            --link-color: #0056b3;
-            --link-hover: #003366;
-            --meta-color: #666666;
-            --border-color: #e0e0e0;
-            --section-bg: #f7f9fa;
-            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venugopalareddy Mekala, Ph.D. · Computational Biologist</title>
+  <meta name="description" content="Personal homepage of Dr. Venugopalareddy Mekala, Postdoctoral Scholar at UAB specializing in Computational Biology, Cancer Genomics, and Multi-omics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #0d0d12;
+      --text-color: #e0e0e0;
+      --text-muted: #aaa;
+      --accent-color: #bb86fc;
+      --secondary-color: #03dac6;
+      --gradient-1: linear-gradient(135deg, #4a148c, #880e4f);
+      --gradient-2: linear-gradient(135deg, #1a237e, #006064);
+      --card-bg: #1e1e24;
+      --nav-bg: rgba(13, 13, 18, 0.95);
+      --font-main: 'Inter', sans-serif;
+      --primary-color: #bb86fc;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-family);
-            line-height: 1.6;
-            padding: 2rem 1rem;
-            max-width: 860px;
-            margin: 0 auto;
-        }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
 
-        a:hover {
-            text-decoration: underline;
-            color: var(--link-hover);
-        }
+    a:hover {
+      color: var(--accent-color);
+    }
 
-        header {
-            border-bottom: 2px solid var(--text-color);
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
-        }
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 0;
+    }
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.25rem;
-        }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
 
-        .subtitle {
-            font-size: 1.15rem;
-            color: var(--meta-color);
-            margin-bottom: 1rem;
-        }
+    .brand {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+    }
 
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
+    .nav-links a {
+      margin-left: 2rem;
+      color: #ccc;
+      font-weight: 500;
+    }
 
-        .contact-links a {
-            display: inline-flex;
-            align-items: center;
-        }
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
 
-        section {
-            margin-bottom: 2.5rem;
-        }
+    /* Hero Section */
+    .hero {
+      min-height: min-content;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      background: radial-gradient(circle at 50% 50%, rgba(74, 20, 140, 0.25), transparent 70%);
+      padding: 4rem 2rem 2rem 2rem;
+    }
 
-        h2 {
-            font-size: 1.35rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.4rem;
-            margin-bottom: 1.2rem;
-            color: #111;
-        }
+    .hero-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      box-shadow: 0 0 25px rgba(187, 134, 252, 0.4);
+      background-color: #333;
+      flex-shrink: 0;
+    }
 
-        .bio-summary {
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
-        }
+    .hero-text {
+      text-align: left;
+      max-width: 700px;
+    }
 
-        .item-group {
-            margin-bottom: 1.25rem;
-        }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #fff, #b39ddb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .item-title {
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
+    .hero .tagline {
+      font-size: 1.35rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
 
-        .item-sub {
-            color: var(--meta-color);
-            font-size: 0.92rem;
-            margin-bottom: 0.3rem;
-        }
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
 
-        ul {
-            list-style-type: square;
-            margin-left: 1.25rem;
-            margin-top: 0.4rem;
-        }
+    .hero-links a {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        li {
-            margin-bottom: 0.4rem;
-            font-size: 0.98rem;
-        }
+    .hero-links a:hover {
+      background: rgba(187, 134, 252, 0.15);
+      border-color: var(--accent-color);
+    }
 
-        .pub-list {
-            list-style: none;
-            margin-left: 0;
-        }
+    /* Sections */
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .pub-list li {
-            margin-bottom: 1rem;
-            padding-left: 1rem;
-            border-left: 3px solid var(--border-color);
-        }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
 
-        .pub-title {
-            font-weight: 600;
-            color: #111;
-        }
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--gradient-1);
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
 
-        .pub-authors {
-            font-size: 0.92rem;
-            color: #444;
-        }
+    /* About */
+    .about-content {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      text-align: center;
+      color: #ccc;
+    }
 
-        .pub-journal {
-            font-style: italic;
-            font-size: 0.9rem;
-            color: var(--meta-color);
-        }
+    /* 3D Carousel Styles */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      padding: 0 0 2rem 0;
+      margin-top: -50px;
+      margin-bottom: -350px;
+      z-index: 10;
+    }
 
-        .badge {
-            background-color: var(--section-bg);
-            border: 1px solid var(--border-color);
-            padding: 0.15rem 0.4rem;
-            font-size: 0.8rem;
-            border-radius: 3px;
-            display: inline-block;
-            margin-right: 0.3rem;
-            margin-bottom: 0.3rem;
-        }
+    .carousel-scene {
+      position: relative;
+      width: 100%;
+      height: 850px;
+      perspective: 2000px;
+      overflow: visible;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      user-select: none;
+      -webkit-user-select: none;
+      pointer-events: none;
+    }
 
-        @media (max-width: 650px) {
-            body {
-                padding: 1rem;
-            }
+    .project-card {
+      position: absolute;
+      top: 250px;
+      left: 50%;
+      width: 310px;
+      height: 400px;
+      margin-top: -200px;
+      margin-left: -155px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transform-style: preserve-3d;
+      will-change: transform, opacity;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s;
+      opacity: 0;
+      pointer-events: auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
 
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
+    .card-visual {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: height 0.5s;
+    }
 
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
+    .project-thumb {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
 
-        footer {
-            margin-top: 4rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--meta-color);
-            text-align: center;
-        }
-    </style>
+    .card-title-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.2rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+      background: var(--card-bg);
+      flex-grow: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s;
+      display: none;
+    }
+
+    .project-info h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-year {
+      color: var(--secondary-color);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-info p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* Focus State for 3D Carousel */
+    .project-card.focused {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 100 !important;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 40px rgba(187, 134, 252, 0.35);
+    }
+
+    .carousel-track:not(.is-dragging) .project-card.focused .card-visual {
+      height: 180px;
+    }
+
+    .carousel-track:not(.is-dragging) .project-card.focused .card-title-overlay {
+      opacity: 0;
+    }
+
+    .carousel-track:not(.is-dragging) .project-card.focused .project-info {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fallback layout when JS is disabled */
+    body.no-js .carousel-container {
+      margin-top: 0;
+      margin-bottom: 0;
+      height: auto;
+      overflow: visible;
+    }
+
+    body.no-js .carousel-scene {
+      height: auto;
+      perspective: none;
+      display: block;
+      padding: 2rem 0;
+    }
+
+    body.no-js .carousel-track {
+      transform-style: flat;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+      height: auto;
+    }
+
+    body.no-js .project-card {
+      position: relative;
+      top: auto;
+      left: auto;
+      margin: 0 auto;
+      transform: none !important;
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: 400px;
+    }
+
+    body.no-js .project-card .card-visual {
+      height: 180px;
+    }
+
+    body.no-js .project-card .card-title-overlay {
+      display: none;
+    }
+
+    body.no-js .project-card .project-info {
+      display: block;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .timeline-item {
+      margin-bottom: 3rem;
+      position: relative;
+      width: 50%;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      padding-right: 3rem;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      padding-left: 3rem;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(187, 134, 252, 0.2);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -9px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -9px;
+    }
+
+    .timeline-dot.current {
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(187, 134, 252, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(187, 134, 252, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(187, 134, 252, 0); }
+    }
+
+    .timeline-date {
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-bottom: 0.3rem;
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .timeline-content h3 {
+      color: #fff;
+      margin-bottom: 0.2rem;
+      font-size: 1.15rem;
+    }
+
+    .timeline-content h4 {
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+
+    .timeline-content ul {
+      list-style-type: none;
+    }
+
+    .timeline-content li {
+      font-size: 0.92rem;
+      color: #ccc;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Publications Grid */
+    .pub-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pub-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid var(--accent-color);
+      padding: 1.25rem;
+      border-radius: 8px;
+    }
+
+    .pub-card h3 {
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-authors {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-venue {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+
+    /* Skills Badges */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ddd;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+      border-radius: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #050508;
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: 10px;
+        right: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        margin-left: 0;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
-<body>
 
-    <header>
+<body class="no-js">
+  <script>
+    document.body.classList.remove('no-js');
+  </script>
+
+  <header>
+    <nav>
+      <a href="#" class="brand">Dr. Venugopalareddy Mekala</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#portfolio">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Headshot Placeholder - Replace src with your image path when available -->
+      <div class="hero-img" style="background: linear-gradient(135deg, #4a148c, #1a237e); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem; font-weight: bold;">VM</div>
+      <div class="hero-text">
         <h1>Venugopalareddy Mekala, Ph.D.</h1>
-        <div class="subtitle">Postdoctoral Scholar | Computational Biology & Cancer Genomics</div>
-        <div class="contact-links">
-            <span><strong>Location:</strong> University of Alabama at Birmingham (UAB), USA</span>
-            <span>|</span>
-            <span><strong>Lab:</strong> Dr. Ritu Aneja Lab (Nutrition Sciences)</span>
-            <br>
-            <a href="https://github.com/venu887" target="_blank" rel="noopener">GitHub</a> &bull;
-            <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener">Google Scholar</a> &bull;
-            <a href="#" target="_blank" rel="noopener">LinkedIn</a> &bull;
-            <a href="mailto:your.email@uab.edu">Email Contact</a>
+        <p class="tagline">Computational Biologist & Cancer Genomics Researcher</p>
+        <div class="hero-links">
+          <a href="https://github.com/venu887" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:your.email@uab.edu">Email Contact</a>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <section>
-            <h2>About & Overview</h2>
-            <p class="bio-summary">
-                I am a Computational Biologist and Postdoctoral Scholar at the <strong>University of Alabama at Birmingham (UAB)</strong>. My research integrates bulk/single-cell transcriptomics, epigenomics, and spatial transcriptomics with statistical prognostic modeling and machine learning to uncover key clinical and immunological drivers in oncology.
-            </p>
-        </section>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>
+          I am a Postdoctoral Scholar at the <strong>University of Alabama at Birmingham (UAB)</strong> in Dr. Ritu Aneja's Lab (Department of Nutrition Sciences).
+        </p>
+        <br>
+        <p>
+          My research combines <strong>Computational Biology, Single-Cell RNA-seq, Spatial Transcriptomics, and Epigenomics</strong> with machine learning models to decode tumor microenvironments and predict clinical outcomes in oncology.
+        </p>
+      </div>
+    </section>
 
-        <section>
-            <h2>Research Interests</h2>
-            <div class="grid-2">
-                <div>
-                    <strong>Computational & Multi-Omics Biology</strong>
-                    <ul>
-                        <li>Bioinformatics & Pipeline Engineering</li>
-                        <li>Single-cell & Spatial Transcriptomics</li>
-                        <li>Epigenomics & Variant Analysis</li>
-                    </ul>
-                </div>
-                <div>
-                    <strong>Clinical & Translational Applications</strong>
-                    <ul>
-                        <li>Machine Learning in Oncology</li>
-                        <li>Statistical Prognostic Modeling</li>
-                        <li>Cancer Immunology & Immunotherapy Response</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- Interactive 3D Portfolio Carousel -->
+    <section id="portfolio" style="padding-bottom: 0;">
+      <h2>Research Focus Areas</h2>
+    </section>
+    
+    <div class="carousel-container">
+      <div class="carousel-scene">
+        <div class="carousel-track" id="carouselTrack">
 
-        <section>
-            <h2>Professional & Academic Experience</h2>
-            
-            <div class="item-group">
-                <div class="item-title">Postdoctoral Fellow &bull; University of Alabama at Birmingham (UAB)</div>
-                <div class="item-sub">Sept 2025 &ndash; Present | Birmingham, AL, USA</div>
-                <ul>
-                    <li>Focusing on Nutrition Sciences Research, integrative multi-omics pipelines, and computational modeling in oncology under Dr. Ritu Aneja.</li>
-                </ul>
+          <!-- Card 1 -->
+          <div class="project-card">
+            <div class="card-visual">
+              <div class="project-thumb" style="background: linear-gradient(135deg, #4a148c, #880e4f);"></div>
+              <div class="card-title-overlay">Single-Cell RNA-seq</div>
             </div>
+            <div class="project-info">
+              <h3>Single-Cell Transcriptomics</h3>
+              <p class="project-year">2023&ndash;Present</p>
+              <p>Mapping protective plasma cell sub-populations in lung adenocarcinoma and immune cell dynamics in male breast cancer using 10X Genomics & CellRanger pipelines.</p>
+            </div>
+          </div>
 
-            <div class="item-group">
-                <div class="item-title">Postdoctoral Associate &bull; Baylor College of Medicine</div>
-                <div class="item-sub">July 2023 &ndash; Aug 2025 | Houston, TX, USA</div>
-                <ul>
-                    <li><strong>Epigenetic Aberrations:</strong> Led a multi-disciplinary study on epigenetic modifier aberrations to predict clinical outcomes in bladder cancer.</li>
-                    <li><strong>Single-Cell Mapping:</strong> Identified protective plasma cell sub-populations in recurrent lung adenocarcinoma and dissected immune dynamics in male breast cancer using scRNA-seq datasets.</li>
-                </ul>
+          <!-- Card 2 -->
+          <div class="project-card">
+            <div class="card-visual">
+              <div class="project-thumb" style="background: linear-gradient(135deg, #1a237e, #006064);"></div>
+              <div class="card-title-overlay">Cancer Epigenomics</div>
             </div>
+            <div class="project-info">
+              <h3>Epigenetic Regulators</h3>
+              <p class="project-year">2023&ndash;2025</p>
+              <p>Uncovering prognostic impacts of epigenetic modifier aberrations in bladder cancer to predict patient response to immunotherapy.</p>
+            </div>
+          </div>
 
-            <div class="item-group">
-                <div class="item-title">Postdoctoral Fellow &bull; Academia Sinica</div>
-                <div class="item-sub">Jan 2023 &ndash; July 2023 | New Taipei City, Taiwan</div>
-                <ul>
-                    <li>Analyzed Whole-Genome Sequencing (WGS) data to pinpoint rare genetic variants associated with gout in the Taiwanese population.</li>
-                    <li>Developed machine learning classifiers to predict patient immunotherapy response rates using integrated clinical and transcriptomic data.</li>
-                </ul>
+          <!-- Card 3 -->
+          <div class="project-card">
+            <div class="card-visual">
+              <div class="project-thumb" style="background: linear-gradient(135deg, #004d40, #00695c);"></div>
+              <div class="card-title-overlay">WGS & Rare Variants</div>
             </div>
+            <div class="project-info">
+              <h3>Genomics & Rare Variants</h3>
+              <p class="project-year">2023</p>
+              <p>Analyzed Whole Genome Sequencing (WGS) data at Academia Sinica to identify rare population-specific variants associated with gout in Taiwan.</p>
+            </div>
+          </div>
 
-            <div class="item-group">
-                <div class="item-title">Research Assistant &bull; Osmania University</div>
-                <div class="item-sub">Sept 2017 &ndash; Jan 2019 | Hyderabad, India</div>
-                <ul>
-                    <li>Investigated Calcineurin downregulation and its mechanistic role in cervical cancer progression (SERB-funded project).</li>
-                </ul>
+          <!-- Card 4 -->
+          <div class="project-card">
+            <div class="card-visual">
+              <div class="project-thumb" style="background: linear-gradient(135deg, #bf360c, #d84315);"></div>
+              <div class="card-title-overlay">Machine Learning</div>
             </div>
-        </section>
+            <div class="project-info">
+              <h3>Prognostic ML Models</h3>
+              <p class="project-year">Ongoing</p>
+              <p>Developing Machine Learning classifiers incorporating clinical indicators and TCGA multi-omics datasets to predict cancer progression.</p>
+            </div>
+          </div>
 
-        <section>
-            <h2>Education</h2>
-            <div class="item-group">
-                <div class="item-title">Ph.D. in Bioinformatics &bull; Asia University, Taiwan (2022)</div>
-                <div class="item-sub">Department of Bioinformatics and Medical Engineering</div>
-                <div class="item-sub"><em>Dissertation:</em> Whole exome sequencing for identification and analysis of novel variants in ovarian cancer cell lines.</div>
+          <!-- Card 5 -->
+          <div class="project-card">
+            <div class="card-visual">
+              <div class="project-thumb" style="background: linear-gradient(135deg, #311b92, #4527a0);"></div>
+              <div class="card-title-overlay">Nextflow & HPC</div>
             </div>
-            <div class="item-group">
-                <div class="item-title">Master of Pharmacy (Pharmacology) &bull; Andhra University, India (2017)</div>
-                <div class="item-sub">College of Pharmaceutical Sciences</div>
+            <div class="project-info">
+              <h3>Reproducible Pipelines</h3>
+              <p class="project-year">Ongoing</p>
+              <p>Constructing scalable bioinformatics workflows with Nextflow, R, Python, and HPC infrastructure for automated bulk/small RNA-seq processing.</p>
             </div>
-            <div class="item-group">
-                <div class="item-title">Bachelor of Pharmacy &bull; Andhra University, India (2013)</div>
-            </div>
-        </section>
+          </div>
 
-        <section>
-            <h2>Selected Publications</h2>
-            <ul class="pub-list">
-                <li>
-                    <div class="pub-title">IL1R1 blockade augments CD40 agonist mediated immunity in pancreatic cancer.</div>
-                    <div class="pub-authors">Boda AR, Bandey IN, Chowdhury S, Aggarwal S, <strong>Mekala VR</strong>, Fowlkes NW, Anderson A, et al.</div>
-                    <div class="pub-journal">Scientific Reports (2026)</div>
-                </li>
-                <li>
-                    <div class="pub-title">DHODH links mitochondrial bioenergetics, one-carbon metabolism, and DNA repair to sustain aggressive prostate adenocarcinoma.</div>
-                    <div class="pub-authors">Rajaratnam S, Piyarathna DWB, Mehta RK, <strong>Mekala VR</strong>, Park JH, Rasaily U, Venkatappa V, et al.</div>
-                    <div class="pub-journal">Cell Communication and Signaling (2026)</div>
-                </li>
-                <li>
-                    <div class="pub-title">Gene signatures characterizing driver mutations in lung squamous carcinoma are predictive of the progression of pre-cancer lesions.</div>
-                    <div class="pub-authors">Lin Y, <strong>Mekala VR</strong>, Li J, Wang X, Aminu M, Wu J, Zhang J, Ripley RT, Amos CI, Cheng C.</div>
-                    <div class="pub-journal">International Journal of Cancer (2025)</div>
-                </li>
-                <li>
-                    <div class="pub-title">Integrative Analysis Reveals the Prognostic Effects of Epigenetic Regulators in Bladder Cancer.</div>
-                    <div class="pub-authors"><strong>Mekala VR</strong>, Lin Y, Wang X, Chowdhury N, Li J, Cheng C.</div>
-                    <div class="pub-journal">Cancer Medicine, 14(14): e71057 (2025)</div>
-                </li>
-                <li>
-                    <div class="pub-title">Whole-genome sequencing reveals rare variants associated with gout in Taiwanese males.</div>
-                    <div class="pub-authors">Tseng YP, Chang YS, <strong>Mekala VR</strong>, Liu TY, Chang JG, Shieh GS.</div>
-                    <div class="pub-journal">Frontiers in Genetics, 15: 1423714 (2024)</div>
-                </li>
-                <li>
-                    <div class="pub-title">Identification of Key Prognosis-related microRNAs in Early-and Late-Stage Gynaecological Cancers Based on TCGA Data.</div>
-                    <div class="pub-authors"><strong>Mekala VR</strong>, Hui-Shan C, Jan-Gowth C, Ng KL.</div>
-                    <div class="pub-journal">Current Bioinformatics, 17(9): 860-872 (2022)</div>
-                </li>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience Timeline -->
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-dot current"></div>
+          <span class="timeline-date">Sept 2025 &ndash; Present</span>
+          <div class="timeline-content">
+            <h3>Postdoctoral Fellow</h3>
+            <h4>University of Alabama at Birmingham (UAB), USA</h4>
+            <ul>
+              <li>Focusing on Nutrition Sciences Research & integrative multi-omics in Dr. Ritu Aneja's Lab.</li>
             </ul>
-        </section>
+          </div>
+        </div>
 
-        <section>
-            <h2>Technical & Analytical Skills</h2>
-            <div>
-                <span class="badge">R</span>
-                <span class="badge">Python</span>
-                <span class="badge">Linux / Unix</span>
-                <span class="badge">Nextflow</span>
-                <span class="badge">CellRanger (10X)</span>
-                <span class="badge">miRDeep2</span>
-                <span class="badge">Bulk / Single-Cell RNA-seq</span>
-                <span class="badge">Spatial Transcriptomics</span>
-                <span class="badge">High-Performance Computing (HPC)</span>
-                <span class="badge">Machine Learning</span>
-                <span class="badge">Wet Lab (RT-PCR, ELISA, IHC)</span>
-            </div>
-        </section>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">July 2023 &ndash; August 2025</span>
+          <div class="timeline-content">
+            <h3>Postdoctoral Associate</h3>
+            <h4>Baylor College of Medicine, Houston, TX, USA</h4>
+            <ul>
+              <li>Led study on epigenetic modifier aberrations in bladder cancer published in <em>Cancer Medicine</em>.</li>
+              <li>Analyzed scRNA-seq datasets for lung adenocarcinoma and male breast cancer.</li>
+            </ul>
+          </div>
+        </div>
 
-        <section>
-            <h2>Editorial Roles & Peer Review</h2>
-            <p><strong>Guest Editor:</strong> <em>PLOS Computational Biology</em></p>
-            <p><strong>Editorial Board Member:</strong> <em>Bioinformatics Methods and Applications</em>, <em>Biomedical Engineering and Computational Biology</em></p>
-            <p style="margin-top: 0.5rem;"><strong>Active Reviewer for:</strong> <em>American Journal of Cancer Research</em>, <em>Biochemical Genetics</em>, <em>Computational Biology (OUP)</em>, <em>Journal of Bioinformatics & Computational Biology</em>, <em>Medical Science Monitor</em>, and others.</p>
-        </section>
-    </main>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">Jan 2023 &ndash; July 2023</span>
+          <div class="timeline-content">
+            <h3>Postdoctoral Fellow</h3>
+            <h4>Academia Sinica, Taiwan</h4>
+            <ul>
+              <li>Utilized WGS data to discover rare genetic variants in gout.</li>
+              <li>Engineered ML models predicting immunotherapy response rates.</li>
+            </ul>
+          </div>
+        </div>
 
-    <footer>
-        <p>&copy; Venugopalareddy Mekala, Ph.D. &bull; Hosted on GitHub Pages</p>
-    </footer>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">Sept 2017 &ndash; Jan 2019</span>
+          <div class="timeline-content">
+            <h3>Research Assistant</h3>
+            <h4>Osmania University, Hyderabad, India</h4>
+            <ul>
+              <li>Investigated Calcineurin downregulation in cervical cancer progression.</li>
+            </ul>
+          </div>
+        </div>
 
+      </div>
+    </section>
+
+    <!-- Selected Publications -->
+    <section id="publications">
+      <h2>Selected Publications</h2>
+      <div class="pub-grid">
+        
+        <div class="pub-card">
+          <h3>IL1R1 blockade augments CD40 agonist mediated immunity in pancreatic cancer.</h3>
+          <div class="pub-authors">Boda AR, Bandey IN, Chowdhury S, Aggarwal S, <strong>Mekala VR</strong>, Fowlkes NW, Anderson A, et al.</div>
+          <div class="pub-venue">Scientific Reports (2026)</div>
+        </div>
+
+        <div class="pub-card">
+          <h3>DHODH links mitochondrial bioenergetics, one-carbon metabolism, and DNA repair to sustain aggressive prostate adenocarcinoma.</h3>
+          <div class="pub-authors">Rajaratnam S, Piyarathna DWB, Mehta RK, <strong>Mekala VR</strong>, Park JH, Rasaily U, et al.</div>
+          <div class="pub-venue">Cell Communication and Signaling (2026)</div>
+        </div>
+
+        <div class="pub-card">
+          <h3>Gene signatures characterizing driver mutations in lung squamous carcinoma are predictive of the progression of pre-cancer lesions.</h3>
+          <div class="pub-authors">Lin Y, <strong>Mekala VR</strong>, Li J, Wang X, Aminu M, Wu J, Zhang J, Ripley RT, Amos CI, Cheng C.</div>
+          <div class="pub-venue">International Journal of Cancer (2025)</div>
+        </div>
+
+        <div class="pub-card">
+          <h3>Integrative Analysis Reveals the Prognostic Effects of Epigenetic Regulators in Bladder Cancer.</h3>
+          <div class="pub-authors"><strong>Mekala VR</strong>, Lin Y, Wang X, Chowdhury N, Li J, Cheng C.</div>
+          <div class="pub-venue">Cancer Medicine, 14(14): e71057 (2025)</div>
+        </div>
+
+        <div class="pub-card">
+          <h3>Whole-genome sequencing reveals rare variants associated with gout in Taiwanese males.</h3>
+          <div class="pub-authors">Tseng YP, Chang YS, <strong>Mekala VR</strong>, Liu TY, Chang JG, Shieh GS.</div>
+          <div class="pub-venue">Frontiers in Genetics, 15: 1423714 (2024)</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills">
+      <h2>Technical Expertise</h2>
+      <div class="skills-container">
+        <span class="badge">R</span>
+        <span class="badge">Python</span>
+        <span class="badge">Linux / Unix</span>
+        <span class="badge">Nextflow</span>
+        <span class="badge">CellRanger (10X Genomics)</span>
+        <span class="badge">miRDeep2</span>
+        <span class="badge">Single-Cell RNA-seq</span>
+        <span class="badge">Spatial Transcriptomics</span>
+        <span class="badge">High-Performance Computing (HPC)</span>
+        <span class="badge">Machine Learning</span>
+        <span class="badge">Epigenomics</span>
+        <span class="badge">Wet Lab (RT-PCR, ELISA, IHC)</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Venugopalareddy Mekala, Ph.D. · Built with modern CSS & 3D JS Architecture · Hosted on GitHub Pages</p>
+  </footer>
+
+  <!-- 3D Ferris Wheel Carousel JavaScript Engine -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('carouselTrack');
+      const cards = Array.from(document.querySelectorAll('.project-card'));
+
+      if (!track || cards.length === 0) return;
+
+      const RADIUS = 550;
+      const VISIBLE_ARC = 120;
+      const CARD_SPACING_DEG = 22;
+
+      let targetIndex = 0;
+      let isDragging = false;
+      let startX = 0;
+      let startIndex = 0;
+      let dragDistance = 0;
+
+      function updateCarousel() {
+        const count = cards.length;
+
+        cards.forEach((card, i) => {
+          let offset = (i - targetIndex) % count;
+          if (offset > count / 2) offset -= count;
+          if (offset < -count / 2) offset += count;
+
+          const thetaDeg = offset * CARD_SPACING_DEG;
+          const thetaRad = thetaDeg * (Math.PI / 180);
+
+          if (Math.abs(thetaDeg) > VISIBLE_ARC) {
+            card.style.opacity = 0;
+            card.style.pointerEvents = 'none';
+            return;
+          }
+          card.style.pointerEvents = 'auto';
+
+          const x = RADIUS * Math.sin(thetaRad);
+          const y = RADIUS * (1 - Math.cos(thetaRad));
+          const z = -Math.abs(offset) * 50;
+          const rotateZ = offset * 5;
+          const scale = 1 - Math.abs(offset) * 0.05;
+          const opacity = 1 - Math.abs(offset) * 0.2;
+
+          card.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateZ(${rotateZ}deg) scale(${Math.max(scale, 0)})`;
+          card.style.opacity = Math.max(opacity, 0);
+          card.style.zIndex = 100 - Math.round(Math.abs(offset));
+
+          if (Math.abs(offset) < 0.1) {
+            card.classList.add('focused');
+          } else {
+            card.classList.remove('focused');
+          }
+        });
+      }
+
+      function handleDragStart(e) {
+        isDragging = true;
+        dragDistance = 0;
+        startX = e.touches ? e.touches[0].clientX : e.clientX;
+        startIndex = targetIndex;
+      }
+
+      function handleDragMove(e) {
+        if (!isDragging) return;
+        const x = e.touches ? e.touches[0].clientX : e.clientX;
+        const deltaX = x - startX;
+
+        if (Math.abs(deltaX) > 5) {
+          track.classList.add('is-dragging');
+        }
+        dragDistance = Math.abs(deltaX);
+
+        const deltaIndex = -deltaX / 100;
+        targetIndex = startIndex + deltaIndex;
+
+        requestAnimationFrame(updateCarousel);
+      }
+
+      function handleDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('is-dragging');
+        targetIndex = Math.round(targetIndex);
+        updateCarousel();
+        setTimeout(() => { dragDistance = 0; }, 50);
+      }
+
+      track.parentElement.addEventListener('mousedown', handleDragStart);
+      track.parentElement.addEventListener('touchstart', handleDragStart, { passive: true });
+
+      window.addEventListener('mousemove', handleDragMove);
+      window.addEventListener('touchmove', handleDragMove, { passive: true });
+
+      window.addEventListener('mouseup', handleDragEnd);
+      window.addEventListener('touchend', handleDragEnd);
+
+      cards.forEach((card, index) => {
+        card.addEventListener('click', (e) => {
+          if (dragDistance > 5) return;
+          const count = cards.length;
+          let offset = (index - targetIndex) % count;
+          if (offset > count / 2) offset -= count;
+          if (offset < -count / 2) offset += count;
+          if (Math.abs(offset) < 0.1) return;
+          targetIndex += offset;
+          updateCarousel();
+        });
+      });
+
+      updateCarousel();
+    });
+  </script>
 </body>
 </html>
