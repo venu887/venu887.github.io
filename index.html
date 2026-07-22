@@ -10,6 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Academicons for Google Scholar and ORCID -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
   <style>
     :root {
       --bg-color: #0d0d12;
@@ -140,6 +145,9 @@
       padding: 0.4rem 0.8rem;
       border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .hero-links a:hover {
@@ -515,6 +523,52 @@
       border-radius: 20px;
     }
 
+    /* Contact Section Cards */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      color: #fff;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-card i {
+      font-size: 2.2rem;
+      color: var(--accent-color);
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .contact-card span {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+      box-shadow: 0 8px 25px rgba(187, 134, 252, 0.2);
+      color: #fff;
+    }
+
+    .contact-card:hover i {
+      color: var(--secondary-color);
+      transform: scale(1.1);
+    }
+
     /* Footer */
     footer {
       background-color: #050508;
@@ -581,6 +635,7 @@
         <a href="#portfolio">Research</a>
         <a href="#experience">Experience</a>
         <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
@@ -588,16 +643,15 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
-      <!-- Headshot Placeholder - Replace src with your image path when available -->
       <div class="hero-img" style="background: linear-gradient(135deg, #4a148c, #1a237e); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem; font-weight: bold;">VM</div>
       <div class="hero-text">
         <h1>Venugopalareddy Mekala, Ph.D.</h1>
         <p class="tagline">Computational Biologist & Cancer Genomics Researcher</p>
         <div class="hero-links">
-          <a href="https://github.com/venu887" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener">Google Scholar</a>
-          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="mailto:your.email@uab.edu">Email Contact</a>
+          <a href="https://github.com/venu887" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i> Google Scholar</a>
+          <a href="#" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="mailto:your.email@uab.edu"><i class="fa-regular fa-envelope"></i> Email</a>
         </div>
       </div>
     </section>
@@ -806,6 +860,33 @@
         <span class="badge">Machine Learning</span>
         <span class="badge">Epigenomics</span>
         <span class="badge">Wet Lab (RT-PCR, ELISA, IHC)</span>
+      </div>
+    </section>
+
+    <!-- Contact & Social Icons Section -->
+    <section id="contact">
+      <h2>Connect & Contact</h2>
+      <div class="contact-grid">
+        <a href="mailto:your.email@uab.edu" class="contact-card">
+          <i class="fa-regular fa-envelope"></i>
+          <span>Email</span>
+        </a>
+        <a href="https://github.com/venu887" target="_blank" rel="noopener" class="contact-card">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://shorturl.at/liHNT" target="_blank" rel="noopener" class="contact-card">
+          <i class="ai ai-google-scholar"></i>
+          <span>Google Scholar</span>
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="contact-card">
+          <i class="fa-brands fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://orcid.org/" target="_blank" rel="noopener" class="contact-card">
+          <i class="ai ai-orcid"></i>
+          <span>ORCID</span>
+        </a>
       </div>
     </section>
   </main>
