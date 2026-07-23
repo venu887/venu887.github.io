@@ -10,48 +10,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome & Academicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Academicons for Google Scholar and ORCID -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <style>
-    /* CSS Variables for Light Mode (Default) */
+    /* Color Palette - Light Mode */
     :root {
       --bg-color: #F8FAFC;
-      --section-alt-bg: #EDF2F7;
+      --section-alt-bg: #F1F5F9;
       --text-color: #1E293B;
       --text-muted: #64748B;
-      --primary-color: #25527B;
-      --accent-color: #236356;
-      --highlight-color: #E2EDF8;
-      --badge-bg: #EAEFF5;
+      --primary-color: #1E3A8A; /* Deep Navy */
+      --accent-color: #0284C7;  /* Sky Blue Accent */
+      --badge-bg: #E2E8F0;
       --card-bg: #FFFFFF;
-      --nav-bg: rgba(248, 250, 252, 0.85);
+      --nav-bg: rgba(248, 250, 252, 0.9);
       --font-main: 'Inter', sans-serif;
-      --gradient-1: linear-gradient(135deg, #25527B, #236356);
-      --border-color: #CBD5E1;
-      --hero-bg: linear-gradient(180deg, #DCEBF7 0%, #F8FAFC 100%);
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      --shadow-md: 0 10px 25px -5px rgba(37, 82, 123, 0.12);
+      --border-color: #E2E8F0;
+      --hero-bg: linear-gradient(180deg, #E0F2FE 0%, #F8FAFC 100%);
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 10px 20px -5px rgba(15, 23, 42, 0.08);
     }
 
-    /* CSS Variables for Dark Mode */
+    /* Color Palette - Dark Mode */
     [data-theme="dark"] {
-      --bg-color: #0F172A;
-      --section-alt-bg: #1E293B;
-      --text-color: #F1F5F9;
-      --text-muted: #94A3B8;
-      --primary-color: #60A5FA;
-      --accent-color: #34D399;
-      --highlight-color: rgba(96, 165, 250, 0.12);
-      --badge-bg: #1E293B;
-      --card-bg: #1E293B;
-      --nav-bg: rgba(15, 23, 42, 0.85);
-      --gradient-1: linear-gradient(135deg, #60A5FA, #34D399);
-      --border-color: #334155;
-      --hero-bg: radial-gradient(circle at 50% 20%, #1E293B 0%, #0F172A 100%);
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --bg-color: #0B0F19;
+      --section-alt-bg: #111827;
+      --text-color: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --primary-color: #38BDF8;
+      --accent-color: #818CF8;
+      --badge-bg: #1F2937;
+      --card-bg: #111827;
+      --nav-bg: rgba(11, 15, 25, 0.9);
+      --border-color: #1F2937;
+      --hero-bg: radial-gradient(circle at 50% 20%, #111827 0%, #0B0F19 100%);
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
       --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
     }
 
@@ -68,14 +63,12 @@
       line-height: 1.6;
       overflow-x: hidden;
       transition: background-color 0.3s ease, color 0.3s ease;
-      background-image: radial-gradient(var(--border-color) 0.75px, transparent 0.75px);
-      background-size: 24px 24px;
     }
 
     a {
       color: var(--primary-color);
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     a:hover {
@@ -87,11 +80,11 @@
       position: sticky;
       top: 0;
       background-color: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       z-index: 1000;
       border-bottom: 1px solid var(--border-color);
-      padding: 0.8rem 0;
+      padding: 0.75rem 0;
       transition: background-color 0.3s, border-color 0.3s;
     }
 
@@ -114,19 +107,17 @@
       color: var(--text-color);
       font-weight: 500;
       font-size: 0.95rem;
-      transition: color 0.2s;
     }
 
     .nav-links a:hover {
       color: var(--accent-color);
     }
 
-    /* Dark Mode Toggle Button */
     .theme-toggle {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       color: var(--text-color);
-      padding: 0.5rem 0.8rem;
+      padding: 0.4rem 0.8rem;
       border-radius: 20px;
       cursor: pointer;
       display: flex;
@@ -135,20 +126,17 @@
       font-size: 0.85rem;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
     }
 
     .theme-toggle:hover {
       border-color: var(--primary-color);
-      transform: translateY(-1px);
     }
 
-    /* Hero Section - Full Width Banner Fix */
+    /* Hero Section */
     .hero-wrapper {
       width: 100%;
       background: var(--hero-bg);
       border-bottom: 1px solid var(--border-color);
-      transition: background 0.3s;
     }
 
     .hero {
@@ -158,24 +146,19 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      gap: 3rem;
-      padding: 4.5rem 2rem 4rem 2rem;
+      gap: 2.5rem;
+      padding: 3.5rem 2rem 3rem 2rem;
     }
 
     .hero-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 24px; /* Squircle design */
+      width: 170px;
+      height: 170px;
+      border-radius: 20px; /* Squircle / Soft Edges */
       object-fit: cover;
-      border: 3px solid var(--primary-color);
+      border: 2px solid var(--primary-color);
       box-shadow: var(--shadow-md);
       background-color: var(--card-bg);
       flex-shrink: 0;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .hero-img:hover {
-      transform: scale(1.02);
     }
 
     .hero-text {
@@ -184,24 +167,23 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.1rem, 4.5vw, 3.2rem);
-      margin-bottom: 0.6rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 0.5rem;
       color: var(--primary-color);
       font-weight: 800;
       letter-spacing: -0.5px;
     }
 
     .hero .tagline {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--text-color);
       font-weight: 500;
       line-height: 1.5;
     }
 
-    /* Alternating Sections */
+    /* Alternating Sections & Reduced Padding */
     .section-wrapper {
       width: 100%;
-      transition: background-color 0.3s;
     }
 
     .section-wrapper.alt {
@@ -211,14 +193,14 @@
     }
 
     section {
-      padding: 4rem 2rem;
+      padding: 3rem 2rem; /* Reduced Section Padding */
       max-width: 1100px;
       margin: 0 auto;
     }
 
     h2 {
-      font-size: 2.1rem;
-      margin-bottom: 2.5rem;
+      font-size: 1.9rem;
+      margin-bottom: 2rem;
       text-align: center;
       color: var(--primary-color);
       position: relative;
@@ -228,10 +210,10 @@
     h2::after {
       content: '';
       display: block;
-      width: 50px;
-      height: 4px;
-      background: var(--gradient-1);
-      margin: 0.6rem auto 0;
+      width: 45px;
+      height: 3px;
+      background: var(--primary-color);
+      margin: 0.5rem auto 0;
       border-radius: 2px;
     }
 
@@ -239,33 +221,33 @@
     .about-content {
       max-width: 850px;
       margin: 0 auto;
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       color: var(--text-color);
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
     .about-content p {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .about-content p:last-child {
       margin-bottom: 0;
     }
 
-    /* 3D Carousel Section */
+    /* 3D Carousel Section - Updated Card Specs */
     .carousel-container {
       position: relative;
       overflow: hidden;
       padding: 0 0 2rem 0;
-      margin-top: -30px;
-      margin-bottom: -350px;
+      margin-top: -20px;
+      margin-bottom: -360px;
       z-index: 10;
     }
 
     .carousel-scene {
       position: relative;
       width: 100%;
-      height: 850px;
+      height: 750px;
       perspective: 2000px;
       overflow: visible;
       display: flex;
@@ -283,16 +265,17 @@
       pointer-events: none;
     }
 
+    /* Reduced Height & Modified Positioning */
     .project-card {
       position: absolute;
-      top: 250px;
+      top: 200px; /* Updated as requested */
       left: 50%;
       width: 320px;
-      height: 400px;
-      margin-top: -200px;
+      height: 350px; /* Updated as requested */
+      margin-top: -175px;
       margin-left: -160px;
       background: var(--card-bg);
-      border-radius: 20px;
+      border-radius: 16px;
       box-shadow: var(--shadow-md);
       transform-style: preserve-3d;
       will-change: transform, opacity;
@@ -314,13 +297,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #1E3A5F, #36648B);
-      color: white;
+      background-color: var(--section-alt-bg);
+      overflow: hidden;
     }
 
-    .card-visual i {
-      font-size: 3.5rem;
-      opacity: 0.95;
+    /* Figure Image Support Inside Cards */
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
     .card-title-overlay {
@@ -328,18 +314,18 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      padding: 1.2rem;
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
-      color: white;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(11, 15, 25, 0.95), transparent);
+      color: #FFFFFF;
       font-weight: 700;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       opacity: 1;
       transition: opacity 0.3s;
       text-align: center;
     }
 
     .project-info {
-      padding: 1.25rem 1.5rem;
+      padding: 1rem 1.25rem;
       background: var(--card-bg);
       flex-grow: 1;
       opacity: 0;
@@ -351,14 +337,14 @@
     .project-info h3 {
       margin-top: 0;
       color: var(--primary-color);
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
     }
 
     .project-info p {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-color);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     .project-card.focused {
@@ -366,11 +352,10 @@
       pointer-events: auto;
       z-index: 100 !important;
       border-color: var(--primary-color);
-      box-shadow: 0 15px 35px rgba(37, 82, 123, 0.25);
     }
 
     .carousel-track:not(.is-dragging) .project-card.focused .card-visual {
-      height: 140px;
+      height: 130px;
     }
 
     .carousel-track:not(.is-dragging) .project-card.focused .card-title-overlay {
@@ -401,50 +386,38 @@
     }
 
     .timeline-item {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       position: relative;
       width: 50%;
     }
 
     .timeline-item:nth-child(odd) {
       left: 0;
-      padding-right: 2.5rem;
+      padding-right: 2rem;
       text-align: right;
     }
 
     .timeline-item:nth-child(even) {
       left: 50%;
-      padding-left: 2.5rem;
+      padding-left: 2rem;
       text-align: left;
     }
 
     .timeline-dot {
       position: absolute;
       top: 0;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       background: var(--primary-color);
       border-radius: 50%;
-      box-shadow: 0 0 0 4px var(--highlight-color);
     }
 
     .timeline-item:nth-child(odd) .timeline-dot {
-      right: -8px;
+      right: -7px;
     }
 
     .timeline-item:nth-child(even) .timeline-dot {
-      left: -8px;
-    }
-
-    .timeline-dot.current {
-      animation: pulse 2.5s infinite;
-      background: var(--accent-color);
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(35, 99, 86, 0.6); }
-      70% { box-shadow: 0 0 0 10px rgba(35, 99, 86, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(35, 99, 86, 0); }
+      left: -7px;
     }
 
     .timeline-date {
@@ -452,21 +425,21 @@
       color: var(--accent-color);
       margin-bottom: 0.2rem;
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .timeline-content h3 {
       color: var(--primary-color);
       margin-bottom: 0.2rem;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     .timeline-content h4 {
       font-weight: 500;
       color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       font-style: italic;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .timeline-content ul {
@@ -474,7 +447,7 @@
     }
 
     .timeline-content li {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-color);
     }
 
@@ -482,7 +455,7 @@
     .pub-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.25rem;
+      gap: 1rem;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -491,36 +464,35 @@
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-left: 4px solid var(--primary-color);
-      padding: 1.25rem 1.5rem;
-      border-radius: 12px;
+      padding: 1.1rem 1.4rem;
+      border-radius: 10px;
       box-shadow: var(--shadow-sm);
-      transition: background-color 0.3s, border-color 0.3s;
     }
 
     .pub-card h3 {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--primary-color);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
       line-height: 1.4;
     }
 
     .pub-authors {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
     }
 
     .pub-venue {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--accent-color);
       font-weight: 600;
     }
 
-    /* Categorized Technical Expertise */
+    /* Skills Grid */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -528,17 +500,16 @@
     .skills-category {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1.25rem;
+      border-radius: 12px;
+      padding: 1.1rem;
       box-shadow: var(--shadow-sm);
-      transition: background-color 0.3s, border-color 0.3s;
     }
 
     .skills-category h3 {
-      font-size: 1.05rem;
+      font-size: 0.98rem;
       color: var(--primary-color);
-      margin-bottom: 1rem;
-      border-bottom: 2px solid var(--highlight-color);
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border-color);
       padding-bottom: 0.4rem;
       display: flex;
       align-items: center;
@@ -548,17 +519,17 @@
     .badge-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .badge {
       background: var(--badge-bg);
       border: 1px solid var(--border-color);
       color: var(--text-color);
-      padding: 0.35rem 0.75rem;
-      font-size: 0.85rem;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.82rem;
       font-weight: 500;
-      border-radius: 8px;
+      border-radius: 6px;
     }
 
     /* Contact Section */
@@ -569,16 +540,16 @@
     }
 
     .contact-subtext {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--text-color);
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .contact-bar {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
@@ -586,19 +557,15 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.65rem 1.25rem;
+      padding: 0.6rem 1.1rem;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 10px;
+      border-radius: 8px;
       color: var(--primary-color);
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       box-shadow: var(--shadow-sm);
-      transition: all 0.25s ease;
-    }
-
-    .contact-btn i {
-      font-size: 1.1rem;
+      transition: all 0.2s ease;
     }
 
     .contact-btn:hover {
@@ -606,20 +573,20 @@
       color: white;
       border-color: var(--primary-color);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
     }
 
-    /* Footer */
+    /* Updated Custom Footer */
     footer {
-      background-color: #0B1120;
-      color: #94A3B8;
-      padding: 2.5rem 0;
+      background-color: #0B0F19;
+      color: #9CA3AF;
+      padding: 2rem 1rem;
       text-align: center;
       font-size: 0.9rem;
-      border-top: 1px solid #1E293B;
+      border-top: 1px solid #1F2937;
+      line-height: 1.5;
     }
 
-    /* Mobile Responsive Adjustments */
+    /* Mobile Responsiveness */
     @media (max-width: 768px) {
       nav {
         justify-content: space-between;
@@ -628,7 +595,7 @@
       .hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 3rem;
+        padding-top: 2.5rem;
       }
 
       .hero-text {
@@ -649,7 +616,7 @@
 
       .timeline-item:nth-child(odd) .timeline-dot,
       .timeline-item:nth-child(even) .timeline-dot {
-        left: 12px;
+        left: 13px;
         right: auto;
       }
 
@@ -690,10 +657,10 @@
   </header>
 
   <main>
-    <!-- Full-Width Hero Section -->
+    <!-- Hero Section -->
     <div class="hero-wrapper">
       <section class="hero">
-        <img class="hero-img" src="ProfilePhoto.jpg" alt="Dr. Venugopalareddy Mekala" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Venugopalareddy+Mekala&size=180&background=25527B&color=fff';">
+        <img class="hero-img" src="ProfilePhoto.jpg" alt="Dr. Venugopalareddy Mekala" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Venugopalareddy+Mekala&size=170&background=1E3A8A&color=fff';">
         <div class="hero-text">
           <h1>Venugopalareddy Mekala, Ph.D.</h1>
           <p class="tagline">Computational Biologist | Bioinformatician | Machine Learning Scientist | Cancer Genomics & Multi-omics Researcher</p>
@@ -722,7 +689,7 @@
       </section>
     </div>
 
-    <!-- Interactive 3D Portfolio Carousel -->
+    <!-- 3D Carousel Section (With Uploadable Figures/Images) -->
     <div class="section-wrapper alt">
       <section id="portfolio" style="padding-bottom: 0;">
         <h2>Research Focus Areas</h2>
@@ -734,73 +701,74 @@
 
             <!-- Card 1 -->
             <div class="project-card">
-              <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #25527B);">
-                <i class="fa-solid fa-dna"></i>
+              <div class="card-visual">
+                <!-- Replace src with your uploaded image URL or local path -->
+                <img class="card-img" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="Single-Cell Transcriptomics" onerror="this.src='https://placehold.co/600x400/1E3A8A/FFFFFF?text=Single-Cell+Omics';">
                 <div class="card-title-overlay">Single-Cell Transcriptomics</div>
               </div>
               <div class="project-info">
                 <h3>Single-Cell Transcriptomics</h3>
-                <p>Mapping protective plasma B-cell sub-populations in lung adenocarcinoma recurrence and analyzing immune cell heterogeneity in male breast cancer microenvironments using 10X Genomics workflows.</p>
+                <p>Mapping protective plasma B-cell sub-populations in lung adenocarcinoma recurrence and analyzing cell heterogeneity in male breast cancer using 10X Genomics.</p>
               </div>
             </div>
 
             <!-- Card 2 -->
             <div class="project-card">
-              <div class="card-visual" style="background: linear-gradient(135deg, #236356, #3B82F6);">
-                <i class="fa-solid fa-chart-line"></i>
+              <div class="card-visual">
+                <img class="card-img" src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=600&q=80" alt="Cancer Epigenomics" onerror="this.src='https://placehold.co/600x400/0284C7/FFFFFF?text=Cancer+Epigenomics';">
                 <div class="card-title-overlay">Cancer Epigenomics</div>
               </div>
               <div class="project-info">
                 <h3>Epigenetic Regulators</h3>
-                <p>Uncovering the prognostic impact of epigenetic modifier aberrations in bladder cancer to stratify risk and evaluate patient clinical response to targeted therapies.</p>
+                <p>Uncovering the prognostic impact of epigenetic modifier aberrations in bladder cancer to stratify risk and evaluate patient response to targeted therapies.</p>
               </div>
             </div>
 
             <!-- Card 3 -->
             <div class="project-card">
-              <div class="card-visual" style="background: linear-gradient(135deg, #25527B, #236356);">
-                <i class="fa-solid fa-microscope"></i>
+              <div class="card-visual">
+                <img class="card-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="WGS & Rare Variants" onerror="this.src='https://placehold.co/600x400/0F172A/FFFFFF?text=WGS+%26+Rare+Variants';">
                 <div class="card-title-overlay">WGS & Rare Variants</div>
               </div>
               <div class="project-info">
                 <h3>Genomics & Rare Variants</h3>
-                <p>Analyzing Whole Genome Sequencing (WGS) datasets at Academia Sinica to identify rare population-specific genetic variants associated with metabolic conditions like gout.</p>
+                <p>Analyzing Whole Genome Sequencing (WGS) datasets at Academia Sinica to identify rare population-specific genetic variants associated with metabolic conditions.</p>
               </div>
             </div>
 
             <!-- Card 4 -->
             <div class="project-card">
-              <div class="card-visual" style="background: linear-gradient(135deg, #0F172A, #25527B);">
-                <i class="fa-solid fa-network-wired"></i>
+              <div class="card-visual">
+                <img class="card-img" src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=600&q=80" alt="Machine Learning" onerror="this.src='https://placehold.co/600x400/38BDF8/FFFFFF?text=Machine+Learning';">
                 <div class="card-title-overlay">Machine Learning</div>
               </div>
               <div class="project-info">
                 <h3>Prognostic ML Models</h3>
-                <p>Engineering predictive machine learning models incorporating multi-omics integration and clinical indicators to forecast cancer progression and biomarker responsiveness.</p>
+                <p>Engineering predictive machine learning models incorporating multi-omics integration and clinical indicators to forecast cancer progression.</p>
               </div>
             </div>
 
             <!-- Card 5 -->
             <div class="project-card">
-              <div class="card-visual" style="background: linear-gradient(135deg, #236356, #1E293B);">
-                <i class="fa-solid fa-terminal"></i>
+              <div class="card-visual">
+                <img class="card-img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Reproducible Pipelines" onerror="this.src='https://placehold.co/600x400/1E293B/FFFFFF?text=Bioinformatics+Pipelines';">
                 <div class="card-title-overlay">Reproducible Pipelines</div>
               </div>
               <div class="project-info">
                 <h3>Nextflow & HPC Pipelines</h3>
-                <p>Constructing scalable bioinformatics workflows with Nextflow, R, Python, and HPC infrastructure for automated bulk/small RNA-seq processing and multi-omics analysis.</p>
+                <p>Constructing scalable bioinformatics workflows with Nextflow, R, Python, and HPC infrastructure for automated bulk/small RNA-seq processing.</p>
               </div>
             </div>
 
             <!-- Card 6 -->
             <div class="project-card">
-              <div class="card-visual" style="background: linear-gradient(135deg, #1E3A5F, #236356);">
-                <i class="fa-solid fa-heart-pulse"></i>
+              <div class="card-visual">
+                <img class="card-img" src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80" alt="Integrative Physiology" onerror="this.src='https://placehold.co/600x400/1E3A8A/FFFFFF?text=Integrative+Physiology';">
                 <div class="card-title-overlay">Integrative Physiology</div>
               </div>
               <div class="project-info">
                 <h3>Omics & Clinical Trials</h3>
-                <p>Conducting integrative multi-omics profiling of clinical trial data evaluating Sudarshan Kriya Yoga (SKY) and rhythmic breathwork on physiological and genomic dynamics.</p>
+                <p>Conducting integrative multi-omics profiling of clinical trial data evaluating physiological and genomic dynamics under structured interventions.</p>
               </div>
             </div>
 
@@ -816,7 +784,7 @@
         <div class="timeline">
           
           <div class="timeline-item">
-            <div class="timeline-dot current"></div>
+            <div class="timeline-dot"></div>
             <span class="timeline-date">Sept 2025 &ndash; Present</span>
             <div class="timeline-content">
               <h3>Postdoctoral Fellow</h3>
@@ -1021,14 +989,16 @@
     </div>
   </main>
 
+  <!-- Custom Footer -->
   <footer>
-    <p>&copy; Venugopalareddy Mekala, Ph.D. · Computational Biologist · Hosted on GitHub Pages</p>
+    <p>&copy; 2026 Venugopalareddy Mekala, Ph.D.</p>
+    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.2rem;">Computational Biology | Cancer Genomics | Multi-omics Research</p>
   </footer>
 
-  <!-- Theme Switching & 3D Carousel JavaScript Engine -->
+  <!-- Theme Switching & 3D Carousel JS Engine -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      /* Dark/Light Theme Switching System */
+      /* Theme Switching */
       const themeToggleBtn = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
       const themeText = document.getElementById('themeText');
@@ -1061,13 +1031,13 @@
         }
       });
 
-      /* 3D Carousel Architecture */
+      /* 3D Carousel Engine */
       const track = document.getElementById('carouselTrack');
       const cards = Array.from(document.querySelectorAll('.project-card'));
 
       if (!track || cards.length === 0) return;
 
-      const RADIUS = 550;
+      const RADIUS = 520;
       const VISIBLE_ARC = 120;
       const CARD_SPACING_DEG = 20;
 
@@ -1098,7 +1068,7 @@
           const x = RADIUS * Math.sin(thetaRad);
           const y = RADIUS * (1 - Math.cos(thetaRad));
           const z = -Math.abs(offset) * 50;
-          const rotateZ = offset * 4;
+          const rotateZ = offset * 3.5;
           const scale = 1 - Math.abs(offset) * 0.05;
           const opacity = 1 - Math.abs(offset) * 0.18;
 
