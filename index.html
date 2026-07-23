@@ -15,22 +15,22 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <style>
-    /* Color Palette - Light Mode */
+    /* Color Palette - Updated Light Mode */
     :root {
-      --bg-color: #F8FAFC;
-      --section-alt-bg: #F1F5F9;
-      --text-color: #1E293B;
-      --text-muted: #64748B;
-      --primary-color: #1E3A8A; /* Deep Navy */
-      --accent-color: #0284C7;  /* Sky Blue Accent */
-      --badge-bg: #E2E8F0;
+      --bg-color: #F5F7FB;
+      --section-alt-bg: #E8EEF8;
+      --text-color: #172033;
+      --text-muted: #55627A;
+      --primary-color: #102A5E;   /* deeper academic navy */
+      --accent-color: #0077B6;    /* biomedical blue */
+      --badge-bg: #DCE7F5;
       --card-bg: #FFFFFF;
-      --nav-bg: rgba(248, 250, 252, 0.9);
+      --nav-bg: rgba(245, 247, 251, 0.92);
       --font-main: 'Inter', sans-serif;
-      --border-color: #E2E8F0;
-      --hero-bg: linear-gradient(180deg, #E0F2FE 0%, #F8FAFC 100%);
-      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 10px 20px -5px rgba(15, 23, 42, 0.08);
+      --border-color: #D4DCEB;
+      --hero-bg: linear-gradient(180deg, #DCEEFF 0%, #F5F7FB 100%);
+      --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.08);
+      --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.12);
     }
 
     /* Color Palette - Dark Mode */
@@ -153,7 +153,7 @@
     .hero-img {
       width: 170px;
       height: 170px;
-      border-radius: 20px; /* Squircle / Soft Edges */
+      border-radius: 20px;
       object-fit: cover;
       border: 2px solid var(--primary-color);
       box-shadow: var(--shadow-md);
@@ -181,7 +181,7 @@
       line-height: 1.5;
     }
 
-    /* Alternating Sections & Reduced Padding */
+    /* Alternating Sections */
     .section-wrapper {
       width: 100%;
     }
@@ -193,7 +193,7 @@
     }
 
     section {
-      padding: 3rem 2rem; /* Reduced Section Padding */
+      padding: 3rem 2rem;
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -234,7 +234,7 @@
       margin-bottom: 0;
     }
 
-    /* 3D Carousel Section - Updated Card Specs */
+    /* 3D Carousel Section */
     .carousel-container {
       position: relative;
       overflow: hidden;
@@ -265,13 +265,12 @@
       pointer-events: none;
     }
 
-    /* Reduced Height & Modified Positioning */
     .project-card {
       position: absolute;
-      top: 200px; /* Updated as requested */
+      top: 200px;
       left: 50%;
       width: 320px;
-      height: 350px; /* Updated as requested */
+      height: 350px;
       margin-top: -175px;
       margin-left: -160px;
       background: var(--card-bg);
@@ -301,7 +300,6 @@
       overflow: hidden;
     }
 
-    /* Figure Image Support Inside Cards */
     .card-img {
       width: 100%;
       height: 100%;
@@ -315,7 +313,7 @@
       left: 0;
       width: 100%;
       padding: 1rem;
-      background: linear-gradient(to top, rgba(11, 15, 25, 0.95), transparent);
+      background: linear-gradient(to top, rgba(17, 24, 39, 0.95), transparent);
       color: #FFFFFF;
       font-weight: 700;
       font-size: 1.05rem;
@@ -488,10 +486,10 @@
       font-weight: 600;
     }
 
-    /* Skills Grid */
+    /* Computational Methods Grid Adjustments */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem;
       max-width: 1000px;
       margin: 0 auto;
@@ -522,14 +520,30 @@
       gap: 0.4rem;
     }
 
+    /* Vertical stack for Programming & Bioinformatics tiles */
+    .badge-list.single-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
     .badge {
       background: var(--badge-bg);
       border: 1px solid var(--border-color);
       color: var(--text-color);
-      padding: 0.3rem 0.65rem;
+      padding: 0.35rem 0.65rem;
       font-size: 0.82rem;
       font-weight: 500;
       border-radius: 6px;
+      text-align: left;
+    }
+
+    /* Center Wet Lab Tile in bottom row */
+    .wet-lab-tile {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: 100%;
+      max-width: 320px;
     }
 
     /* Contact Section */
@@ -575,7 +589,7 @@
       transform: translateY(-2px);
     }
 
-    /* Updated Custom Footer */
+    /* Footer */
     footer {
       background-color: #0B0F19;
       color: #9CA3AF;
@@ -586,7 +600,7 @@
       line-height: 1.5;
     }
 
-    /* Mobile Responsiveness */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       nav {
         justify-content: space-between;
@@ -627,6 +641,10 @@
       .nav-links a {
         font-size: 0.85rem;
       }
+
+      .wet-lab-tile {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -636,7 +654,7 @@
     document.body.classList.remove('no-js');
   </script>
 
-  <!-- Sticky Navbar -->
+  <!-- Navigation -->
   <header>
     <nav>
       <div class="nav-links">
@@ -644,11 +662,11 @@
         <a href="#portfolio">Research</a>
         <a href="#experience">Experience</a>
         <a href="#publications">Publications</a>
-        <a href="#skills">Skills</a>
+        <a href="#skills">Methods</a>
         <a href="#contact">Contact</a>
       </div>
       
-      <!-- Theme Toggle Switch -->
+      <!-- Theme Switcher -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
         <i class="fa-solid fa-moon" id="themeIcon"></i>
         <span id="themeText">Dark</span>
@@ -660,7 +678,7 @@
     <!-- Hero Section -->
     <div class="hero-wrapper">
       <section class="hero">
-        <img class="hero-img" src="ProfilePhoto.jpg" alt="Dr. Venugopalareddy Mekala" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Venugopalareddy+Mekala&size=170&background=1E3A8A&color=fff';">
+        <img class="hero-img" src="ProfilePhoto.jpg" alt="Dr. Venugopalareddy Mekala" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Venugopalareddy+Mekala&size=170&background=102A5E&color=fff';">
         <div class="hero-text">
           <h1>Venugopalareddy Mekala, Ph.D.</h1>
           <p class="tagline">Computational Biologist | Bioinformatician | Machine Learning Scientist | Cancer Genomics & Multi-omics Researcher</p>
@@ -689,7 +707,7 @@
       </section>
     </div>
 
-    <!-- 3D Carousel Section (With Uploadable Figures/Images) -->
+    <!-- 3D Carousel Section -->
     <div class="section-wrapper alt">
       <section id="portfolio" style="padding-bottom: 0;">
         <h2>Research Focus Areas</h2>
@@ -702,8 +720,7 @@
             <!-- Card 1 -->
             <div class="project-card">
               <div class="card-visual">
-                <!-- Replace src with your uploaded image URL or local path -->
-                <img class="card-img" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="Single-Cell Transcriptomics" onerror="this.src='https://placehold.co/600x400/1E3A8A/FFFFFF?text=Single-Cell+Omics';">
+                <img class="card-img" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="Single-Cell Transcriptomics" onerror="this.src='https://placehold.co/600x400/102A5E/FFFFFF?text=Single-Cell+Omics';">
                 <div class="card-title-overlay">Single-Cell Transcriptomics</div>
               </div>
               <div class="project-info">
@@ -715,7 +732,7 @@
             <!-- Card 2 -->
             <div class="project-card">
               <div class="card-visual">
-                <img class="card-img" src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=600&q=80" alt="Cancer Epigenomics" onerror="this.src='https://placehold.co/600x400/0284C7/FFFFFF?text=Cancer+Epigenomics';">
+                <img class="card-img" src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=600&q=80" alt="Cancer Epigenomics" onerror="this.src='https://placehold.co/600x400/0077B6/FFFFFF?text=Cancer+Epigenomics';">
                 <div class="card-title-overlay">Cancer Epigenomics</div>
               </div>
               <div class="project-info">
@@ -727,7 +744,7 @@
             <!-- Card 3 -->
             <div class="project-card">
               <div class="card-visual">
-                <img class="card-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="WGS & Rare Variants" onerror="this.src='https://placehold.co/600x400/0F172A/FFFFFF?text=WGS+%26+Rare+Variants';">
+                <img class="card-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="WGS & Rare Variants" onerror="this.src='https://placehold.co/600x400/172033/FFFFFF?text=WGS+%26+Rare+Variants';">
                 <div class="card-title-overlay">WGS & Rare Variants</div>
               </div>
               <div class="project-info">
@@ -739,7 +756,7 @@
             <!-- Card 4 -->
             <div class="project-card">
               <div class="card-visual">
-                <img class="card-img" src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=600&q=80" alt="Machine Learning" onerror="this.src='https://placehold.co/600x400/38BDF8/FFFFFF?text=Machine+Learning';">
+                <img class="card-img" src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=600&q=80" alt="Machine Learning" onerror="this.src='https://placehold.co/600x400/0077B6/FFFFFF?text=Machine+Learning';">
                 <div class="card-title-overlay">Machine Learning</div>
               </div>
               <div class="project-info">
@@ -751,7 +768,7 @@
             <!-- Card 5 -->
             <div class="project-card">
               <div class="card-visual">
-                <img class="card-img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Reproducible Pipelines" onerror="this.src='https://placehold.co/600x400/1E293B/FFFFFF?text=Bioinformatics+Pipelines';">
+                <img class="card-img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Reproducible Pipelines" onerror="this.src='https://placehold.co/600x400/102A5E/FFFFFF?text=Bioinformatics+Pipelines';">
                 <div class="card-title-overlay">Reproducible Pipelines</div>
               </div>
               <div class="project-info">
@@ -763,7 +780,7 @@
             <!-- Card 6 -->
             <div class="project-card">
               <div class="card-visual">
-                <img class="card-img" src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80" alt="Integrative Physiology" onerror="this.src='https://placehold.co/600x400/1E3A8A/FFFFFF?text=Integrative+Physiology';">
+                <img class="card-img" src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80" alt="Integrative Physiology" onerror="this.src='https://placehold.co/600x400/0077B6/FFFFFF?text=Integrative+Physiology';">
                 <div class="card-title-overlay">Integrative Physiology</div>
               </div>
               <div class="project-info">
@@ -899,15 +916,15 @@
       </section>
     </div>
 
-    <!-- Technical Expertise Grid -->
+    <!-- Computational Methods Grid -->
     <div class="section-wrapper">
       <section id="skills">
-        <h2>Technical Expertise</h2>
+        <h2>Computational Methods</h2>
         <div class="skills-grid">
           
           <div class="skills-category">
             <h3><i class="fa-solid fa-code"></i> Programming</h3>
-            <div class="badge-list">
+            <div class="badge-list single-col">
               <span class="badge">R</span>
               <span class="badge">Python</span>
               <span class="badge">Linux / Unix</span>
@@ -917,7 +934,7 @@
 
           <div class="skills-category">
             <h3><i class="fa-solid fa-gears"></i> Bioinformatics</h3>
-            <div class="badge-list">
+            <div class="badge-list single-col">
               <span class="badge">Nextflow</span>
               <span class="badge">CellRanger</span>
               <span class="badge">miRDeep2</span>
@@ -945,7 +962,8 @@
             </div>
           </div>
 
-          <div class="skills-category">
+          <!-- Wet Lab Tile Centered in Bottom Row -->
+          <div class="skills-category wet-lab-tile">
             <h3><i class="fa-solid fa-vial"></i> Wet Lab</h3>
             <div class="badge-list">
               <span class="badge">RT-PCR</span>
@@ -989,13 +1007,13 @@
     </div>
   </main>
 
-  <!-- Custom Footer -->
+  <!-- Footer -->
   <footer>
     <p>&copy; 2026 Venugopalareddy Mekala, Ph.D.</p>
     <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.2rem;">Computational Biology | Cancer Genomics | Multi-omics Research</p>
   </footer>
 
-  <!-- Theme Switching & 3D Carousel JS Engine -->
+  <!-- Theme Switching & 3D Carousel Engine -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       /* Theme Switching */
